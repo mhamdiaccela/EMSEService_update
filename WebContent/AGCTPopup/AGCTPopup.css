@@ -1,0 +1,191 @@
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+}
+
+#searchTable {
+	width: 100%;
+}
+
+#searchTable, #searchTable th, #searchTable td {
+	border: 0px solid black;
+    padding: 4px;
+    text-align: left;
+}
+
+#searchTable tr {
+	border: 1px solid aliceblue;
+}
+
+th {
+	color: white;
+	background-color: #000080;
+}
+
+input {
+	font-size: 1em;
+}
+
+input[type=text] {
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+	height: 25px !important;
+}
+
+#dateFrom #dateTo {
+	width: auto;
+}
+
+select {
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+	height: 25px !important;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #333333;
+}
+
+.ajax-loader {
+    background: url(ajax-loader.gif) center center no-repeat;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#addDepositButton {
+	margin-bottom: 10px;
+	width: 150px;
+	height: 30px;
+}
+
+#addDepositParentDiv {
+	position: relative;
+	width: 500px;
+	height: 0px;
+	margin-bottom: 30px;
+}
+
+#addDepositDiv {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	padding: 20px 20px 0px 20px;
+	clear:both;
+	border: grey solid 1px;
+}
+
+#searchParentDiv {
+	position: relative;
+	height: 220px;
+	margin-bottom: 30px;
+}
+
+#searchDiv {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px 0px 20px 0px;
+	clear:both;
+}
+
+#firsRecordLabel {
+	display: none;
+}
+
+#firsRecord {
+	display: none;
+	width: 92%;
+}
+
+#searchBtn {
+	display: none;
+	width: 25px;
+    height: 25px;
+	padding: 0px;
+	float: right;
+}
+
+#searchImg {
+	width: 20px;
+    height: 20px;
+}
+
+#fideTable {
+	display: none;
+}
+
+#noDepositsLabel {
+	display: none;
+}
+
+#mainContainer {
+	margin-top:10px;
+}
+
+#firsDiv {
+	width: 900px;
+}
+
+#firsTable {
+	width: 100%;
+	margin-bottom:10px;
+}
+
+form {
+	width: 100%;
+}
+
+.buttonsContainer {
+	width: 100%;
+	text-align: center;
+}
+
+.requiredStar {
+	color: red;
+}
+
+#tableLbl {
+	background-color:aliceblue;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.transparent {
+	/* works for IE 5+. */
+	filter:alpha(opacity=60); 
+
+	/* works for IE 8. */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+
+	/* works for old school versions of the Mozilla browsers like Netscape Navigator. */
+	-moz-opacity:0.6; 
+
+	/* This is for old versions of Safari (1.x) with KHTML rendering engine */
+	-khtml-opacity: 0.6; 
+
+	/* This is the "most important" one because it's the current standard in CSS. This will work in most versions of Firefox, Safari, and Opera. */  
+	opacity: 0.6; 
+}
