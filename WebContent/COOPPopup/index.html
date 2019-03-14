@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" type="text/css" href="../assets/style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="../assets/popup_main.js"></script>
+	</head>
+	<body>
+		<div id="firsDiv">
+			<div id="searchParentDiv">
+				<div id="searchDiv">
+					<form>
+						<fieldset>
+							<legend>Business Inspection Premise:</legend>
+							<table id="searchTable">
+								<tr>
+									<td style="" class="tableLbl">COOP Name</td>
+									<td><input style="" type="text" id="coopName"></input></td>
+									<td style="" class="tableLbl">COOP Number</td>
+									<td><input style="" type="text" id="coopNumber"></input></td>
+
+								</tr>
+
+							</table>
+						</fieldset>
+					</form>
+					<div class="buttonsContainer">
+						<button onclick="searchRecord(1)" style="margin-right: 10px;">Search</button>
+						<button onclick="resetRecordSearch()">Reset</button>
+					</div>
+				</div>
+			</div>
+
+			<div style="display: none" id="noFirsLabel">
+				<script>
+					document.write("has no Consignment Data");
+				</script>
+			</div>
+			<div id="searchResultContainer" style="display: none">
+				<div id="pageingDiv" style="padding: 6px;"></div>
+				<table id="recordListTable">
+				</table>
+				<div class="buttonsContainer">
+					<button onclick="selectCOOP()" style="margin-right: 10px;">Select</button>
+					<button onclick="closeWindow()">Close</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			try {
+				$("#fromDate").datepicker({
+					dateFormat : "yy-mm-dd"
+				});
+				$("#toDate").datepicker({
+					dateFormat : "yy-mm-dd"
+				});
+			} catch (error) {
+				//alert("error jquery: " + error.message);
+			}
+		</script>
+	</body>
+</html>
