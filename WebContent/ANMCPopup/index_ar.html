@@ -14,14 +14,18 @@
 				<div id="searchDiv">
 					<form>
 						<fieldset>
-							<legend>������ ����� :</legend>
+							<legend>���:</legend>
 							<table id="searchTable">
 								<tr>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopName"></input></td>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopNumber"></input></td>
+									<td style="" class="tableLbl">���� �����</td>
+									<td><select id="utilization"></select></td>
+									<td style="" class="tableLbl">����� ���������</td>
+									<td><select id="commercialActivity"></select></td>
 
+								</tr>
+								<tr>
+									<td style="" class="tableLbl">��� �����</td>
+									<td><input style="" type="text" id="marketNumber"></input></td>
 								</tr>
 
 							</table>
@@ -44,7 +48,7 @@
 				<table id="recordListTable">
 				</table>
 				<div class="buttonsContainer">
-					<button onclick="selectCOOP()" style="margin-right: 10px;">������</button>
+					<button onclick="selectANMC()" style="margin-right: 10px;">������</button>
 					<button onclick="closeWindow()">�����</button>
 				</div>
 			</div>

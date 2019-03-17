@@ -5,14 +5,6 @@ var selectedRow = {
 	address : ""
 }
 
-function updateWithdrawError(param) {
-	alert("The deposit must be paid to be withdrawn.");
-}
-
-function updateConfiscateError(param) {
-	alert("The deposit must be paid to be confiscated.");
-}
-
 function searchRecordRequest(coopName, coopNumber, page, limit) {
 	try {
 		showSearchLoading();

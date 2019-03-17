@@ -14,16 +14,22 @@
 				<div id="searchDiv">
 					<form>
 						<fieldset>
-							<legend>������ ����� :</legend>
+							<legend>�����:</legend>
 							<table id="searchTable">
 								<tr>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopName"></input></td>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopNumber"></input></td>
-
+									<td style="" class="tableLbl">��� �����</td>
+									<td><input style="" type="text" id="ALTID"></input></td>
+									<td style="" class="tableLbl">��� ������</td>
+									<td><input style="" type="text" id="planNumber"></input></td>
+									<td style="" class="tableLbl">��� ������</td>
+									<td><input style="" type="text" id="blockNumber"></input></td>
 								</tr>
-
+								<tr>
+									<td style="" class="tableLbl">��� �������</td>
+									<td><input style="" type="text" id="plotID"></input></td>
+									<td style="" class="tableLbl">����� �������</td>
+									<td><input style="" type="text" id="commericialName"></input></td>
+								</tr>
 							</table>
 						</fieldset>
 					</form>
@@ -36,7 +42,7 @@
 
 			<div style="display: none" id="noFirsLabel">
 				<script>
-					document.write("has no Consignment Data");
+					document.write("������ ������");
 				</script>
 			</div>
 			<div id="searchResultContainer" style="display: none">
@@ -44,7 +50,7 @@
 				<table id="recordListTable">
 				</table>
 				<div class="buttonsContainer">
-					<button onclick="selectCOOP()" style="margin-right: 10px;">������</button>
+					<button onclick="selectPLCA()" style="margin-right: 10px;">������</button>
 					<button onclick="closeWindow()">�����</button>
 				</div>
 			</div>

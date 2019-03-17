@@ -3,33 +3,35 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<link rel="stylesheet" type="text/css" href="../assets/style.css">
-		<link rel="stylesheet" type="text/css" href="../assets/style_ar.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="style_ar.css">
 		<script src="../assets/popup_main.js"></script>
 	</head>
 	<body>
-		<div id="firsDiv" style="direction: rtl;">
+		<div id="firsDiv">
 			<div id="searchParentDiv">
 				<div id="searchDiv">
 					<form>
 						<fieldset>
-							<legend>������ ����� :</legend>
+							<legend>Search form:</legend>
 							<table id="searchTable">
 								<tr>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopName"></input></td>
-									<td style="" class="tableLbl">��� �������</td>
-									<td><input style="" type="text" id="coopNumber"></input></td>
+									<td style="" class="tableLbl">Utilization</td>
+									<td><select id="utilization"></select></td>
+									<td style="" class="tableLbl">Commercial Activity</td>
+									<td><select id="commercialActivity"></select></td>
 
+								</tr>
+								<tr>
+									<td style="" class="tableLbl">Market Number</td>
+									<td><input style="" type="text" id="marketNumber"></input></td>
 								</tr>
 
 							</table>
 						</fieldset>
 					</form>
 					<div class="buttonsContainer">
-						<button onclick="searchRecord(1)" style="margin-right: 10px;">���</button>
-						<button onclick="resetRecordSearch()">�����</button>
+						<button onclick="searchRecord(1)" style="margin-right: 10px;">Search</button>
+						<button onclick="resetRecordSearch()">Reset</button>
 					</div>
 				</div>
 			</div>
@@ -44,8 +46,8 @@
 				<table id="recordListTable">
 				</table>
 				<div class="buttonsContainer">
-					<button onclick="selectCOOP()" style="margin-right: 10px;">������</button>
-					<button onclick="closeWindow()">�����</button>
+					<button onclick="selectANMC()" style="margin-right: 10px;">Select</button>
+					<button onclick="closeWindow()">Close</button>
 				</div>
 			</div>
 		</div>

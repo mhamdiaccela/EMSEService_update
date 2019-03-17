@@ -16,10 +16,11 @@ var globalVars = {
 	alterColor : true
 }
 function initJSPage(resourcesUrl, currentUserID, userSessionId, lang, conpId, childrenArr, resizeWindow, recordType, window) {
-	var filename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-	var langPostfix = filename.substring(filename.lastIndexOf(".") - 3, filename.lastIndexOf("."));
-	if (langPostfix != "_ar"){
-		langPostfix = "";
+	//var filename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+	//var langPostfix = filename.substring(filename.lastIndexOf(".") - 3, filename.lastIndexOf("."));
+	var langPostfix = "";
+	if (lang == "ar_AE"){
+		langPostfix = "_ar";
 	}
 	loadjscssfile("https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css", "css");
 	// Load JQuery then load FIRSPopup.js before we start executing our JS
@@ -55,6 +56,21 @@ function initJSPage(resourcesUrl, currentUserID, userSessionId, lang, conpId, ch
 
 	} catch (error) {
 		alert(error.message);
+	}
+}
+
+function initJS(resourcesUrl, currentUserID, userSessionId, lang, resizeWindow, recordType) {
+	globalVars.resourcesUrl = resourcesUrl;
+	globalVars.currentUserID = currentUserID;
+	globalVars.userSessionId = userSessionId;
+	globalVars.lang = lang;
+	globalVars.recordType = recordType;
+
+	if (resizeWindow) {
+		window.resizeTo(window.screen.availWidth - 350, window.screen.availHeight - 100);
+	}
+	if (typeof initPopup!="undefined"){
+		initPopup();		
 	}
 }
 
@@ -114,20 +130,12 @@ function loadjscssfile(filename, filetype) {
 
 }
 
+function updateWithdrawError(param) {
+	alert("The deposit must be paid to be withdrawn.");
+}
 
-function initJS(resourcesUrl, currentUserID, userSessionId, lang, resizeWindow, recordType) {
-	globalVars.resourcesUrl = resourcesUrl;
-	globalVars.currentUserID = currentUserID;
-	globalVars.userSessionId = userSessionId;
-	globalVars.lang = lang;
-	globalVars.recordType = recordType;
-
-	if (resizeWindow) {
-		window.resizeTo(window.screen.availWidth - 350, window.screen.availHeight - 100);
-	}
-	if (typeof initPopup!="undefined"){
-		initPopup();		
-	}
+function updateConfiscateError(param) {
+	alert("The deposit must be paid to be confiscated.");
 }
 
 function showAddLoading() {
