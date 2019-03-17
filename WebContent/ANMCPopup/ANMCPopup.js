@@ -420,13 +420,13 @@ function searchRecord(pageNumber) {
 
 function selectANMC() {
 	var winParent;
+	winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
 			alert("Please select a ANMC");
 			return;
 		}
 		if (globalVars.recordType == "MACR") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -436,7 +436,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "DMCT") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -449,7 +448,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "MIRE") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 
@@ -457,7 +455,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "MMCT1") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_FIRSTMARKETDETAILS_firstContractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_FIRSTMARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -470,7 +467,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "MMCT2") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_SECONDMARKETDETAILS_secondContractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_SECONDMARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -483,7 +479,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "RMCT") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -503,7 +498,7 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "TMCT") {
-			winParent = window.opener.window.opener;
+
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -516,7 +511,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "MCCT") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -534,7 +528,6 @@ function selectANMC() {
 			window.opener.close();
 			window.close();
 		} else if (globalVars.recordType == "TICT") {
-			winParent = window.opener.window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_MarketNumber").value = selectedRow.marketNumber;

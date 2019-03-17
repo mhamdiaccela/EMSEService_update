@@ -203,7 +203,7 @@ function selectCOOP() {
 			return;
 		}
 		if (globalVars.recordType == "COCT") {
-			winParent = window.opener.window.opener;
+			winParent = window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = selectedRow.coopName;
