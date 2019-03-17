@@ -1,4 +1,4 @@
-alert('........ Hamdiiiiiiiiiiiiiiiiiii');
+//alert('........ Hamdiiiiiiiiiiiiiiiiiii');
 var selectedRow = {
 	licenseNumber : "",
 	chaletID : "",
@@ -6,47 +6,8 @@ var selectedRow = {
 	IsResort : ""
 }
 
-var globalVars = {
-	emseServiceUrl : "/EMSEService/Service",
-	resourcesUrl : "",
-	currentUserID : "",
-	userSessionId : "",
-	recordType : "",
-	lang : "",
-	hasMainDepositType : false,
-	selectedConsignee : "",
-	selectedConsigneeEnglishName : "",
-	pageNumber : 1,
-	pageLimit : 4,
-	resultCount : 0,
-	childWindow : false,
-	alterColor : true
-}
-
-function initJS(resourcesUrl, currentUserID, userSessionId, lang, resizeWindow, recordType) {
-	alert("initJS");
-	globalVars.resourcesUrl = resourcesUrl;
-	globalVars.currentUserID = currentUserID;
-	globalVars.userSessionId = userSessionId;
-	globalVars.lang = lang;
-	globalVars.recordType = recordType;
-
-	if (resizeWindow) {
-		window.resizeTo(window.screen.availWidth - 350, window.screen.availHeight - 100);
-	}
-
-}
-
-function updateWithdrawError(param) {
-	alert("The deposit must be paid to be withdrawn.");
-}
-
-function updateConfiscateError(param) {
-	alert("The deposit must be paid to be confiscated.");
-}
-
 function searchRecordRequest(licenseNumber, chaletID, licenseIssuanceDate, IsResort) {
-	alert('........ 1 searchRecordRequest');
+	//alert('........ 1 searchRecordRequest');
 	try {
 		showSearchLoading();
 
@@ -217,30 +178,6 @@ function resetForm() {
 	$("#searchBtn").css("display", "none");
 }
 
-function showAddLoading() {
-	$('#addDepositParentDiv').append(
-			'<div id="addLoading" class="transparent" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: #000000;padding: 20px 20px 0px 20px">'
-					+ '<img src="' + globalVars.resourcesUrl + 'ajax-loader.gif" style="position: absolute;top: 45%;left: 45%;"></div>');
-}
-
-function showSearchLoading() {
-	$('#searchParentDiv').append(
-			'<div id="searchLoading" class="transparent" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: #000000;padding: 20px 20px 0px 20px">'
-					+ '<img src="' + globalVars.resourcesUrl + 'ajax-loader.gif" style="position: absolute;top: 45%;left: 45%;"></div>');
-}
-
-function hideAddLoading() {
-	$('#addLoading').remove();
-}
-
-function hideSearchLoading() {
-	$('#searchLoading').remove();
-}
-
-function isNumeric(n) {
-	return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
 function searchRecordPage(pageNumber) {
 	if (pageNumber > (Math.ceil(globalVars.resultCount / globalVars.pageLimit))) {
 		return;
@@ -256,14 +193,14 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	alert('........ 1');
+	//alert('........ 1');
 	searchRecordRequest($("#licenseNumber").val(), $("#chaletID").val(), $("#licenseIssuanceDate").val(), $("#IsResort").val(),
 			pageNumber, globalVars.pageLimit);
 }
 
 function selectNCHL() {
 
-	var winParent = window.opener.window.opener;
+	var winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
 			alert("Please select a NCHL");
@@ -296,80 +233,4 @@ function resetRecordSearch() {
 	globalVars.pageNumber = 1;
 	globalVars.selectedConsignee = "";
 	globalVars.selectedConsigneeEnglishName = "";
-}
-
-function decode64(input) {
-
-	var keyStr = "ABCDEFGHIJKLMNOP" +
-
-	"QRSTUVWXYZabcdef" +
-
-	"ghijklmnopqrstuv" +
-
-	"wxyz0123456789+/" +
-
-	"=";
-
-	var output = "";
-
-	var chr1, chr2, chr3 = "";
-
-	var enc1, enc2, enc3, enc4 = "";
-
-	var i = 0;
-
-	// remove all characters that are not A-Z, a-z, 0-9, +, /, or =
-
-	var base64test = /[^A-Za-z0-9\+\/\=]/g;
-
-	if (base64test.exec(input)) {
-
-		alert("There were invalid base64 characters in the input text.\n" +
-
-		"Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-
-		"Expect errors in decoding.");
-
-	}
-
-	input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
-	do {
-
-		enc1 = keyStr.indexOf(input.charAt(i++));
-
-		enc2 = keyStr.indexOf(input.charAt(i++));
-
-		enc3 = keyStr.indexOf(input.charAt(i++));
-
-		enc4 = keyStr.indexOf(input.charAt(i++));
-
-		chr1 = (enc1 << 2) | (enc2 >> 4);
-
-		chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-
-		chr3 = ((enc3 & 3) << 6) | enc4;
-
-		output = output + String.fromCharCode(chr1);
-
-		if (enc3 != 64) {
-
-			output = output + String.fromCharCode(chr2);
-
-		}
-
-		if (enc4 != 64) {
-
-			output = output + String.fromCharCode(chr3);
-
-		}
-
-		chr1 = chr2 = chr3 = "";
-
-		enc1 = enc2 = enc3 = enc4 = "";
-
-	} while (i < input.length);
-
-	return unescape(output);
-
 }

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" type="text/css" href="../assets/style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="../assets/popup_main.js"></script>
+	</head>
+	<body>
+		<div id="firsDiv">
+			<div id="searchParentDiv">
+				<div id="searchDiv">
+					<form>
+						<fieldset>
+							<legend>Search Values:</legend>
+							<table id="searchTable">
+								<tr>
+									<td style="" class="tableLbl">Contract Number</td>
+									<td><input style="" type="text" id="ALTID"></input></td>
+									<td style="" class="tableLbl">Plan Number</td>
+									<td><input style="" type="text" id="planNumber"></input></td>
+									<td style="" class="tableLbl">Block Number</td>
+									<td><input style="" type="text" id="blockNumber"></input></td>
+								</tr>
+								<tr>
+									<td style="" class="tableLbl">Plot ID</td>
+									<td><input style="" type="text" id="plotID"></input></td>
+									<td style="" class="tableLbl">Commericial Name</td>
+									<td><input style="" type="text" id="commericialName"></input></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+					<div class="buttonsContainer">
+						<button onclick="searchRecord(1)" style="margin-right: 10px;">Search</button>
+						<button onclick="resetRecordSearch()">Reset</button>
+					</div>
+				</div>
+			</div>
+
+			<div style="display: none" id="noFirsLabel">
+				<script>
+					document.write("has no Consignment Data");
+				</script>
+			</div>
+			<div id="searchResultContainer" style="display: none">
+				<div id="pageingDiv" style="padding: 6px;"></div>
+				<table id="recordListTable">
+				</table>
+				<div class="buttonsContainer">
+					<button onclick="selectPLCA()" style="margin-right: 10px;">Select</button>
+					<button onclick="closeWindow()">Close</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			try {
+				$("#fromDate").datepicker({
+					dateFormat : "yy-mm-dd"
+				});
+				$("#toDate").datepicker({
+					dateFormat : "yy-mm-dd"
+				});
+			} catch (error) {
+				//alert("error jquery: " + error.message);
+			}
+		</script>
+	</body>
+</html>
