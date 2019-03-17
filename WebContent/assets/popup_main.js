@@ -38,14 +38,6 @@ function initJSPage(resourcesUrl, currentUserID, userSessionId, lang, conpId, ch
 					globalVars.childWindow.close();
 				}
 			})
-
-			for (var i = 0; i < licenseIssuerArr.length; i++) {
-				$('#licenseIssuer').append($('<option>', {
-					value : licenseIssuerArr[i],
-					text : licenseIssuerArr[i]
-				}));
-			}
-
 		});
 	});
 
