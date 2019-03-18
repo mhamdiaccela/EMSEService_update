@@ -375,7 +375,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.area;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "DMCT") {
 
@@ -387,14 +387,14 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "MIRE") {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "MMCT1") {
 
@@ -406,7 +406,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_FIRSTMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "MMCT2") {
 
@@ -418,7 +418,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_SECONDMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "RMCT") {
 
@@ -437,7 +437,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "TMCT") {
 
@@ -450,7 +450,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "MCCT") {
 
@@ -467,7 +467,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "TICT") {
 
@@ -486,7 +486,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		}
 
@@ -497,7 +497,7 @@ function selectANMC() {
 
 function closeWindow() {
 	window.close();
-	window.opener.close();
+	
 }
 
 function resetRecordSearch() {

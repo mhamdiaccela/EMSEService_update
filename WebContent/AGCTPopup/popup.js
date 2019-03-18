@@ -256,7 +256,7 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
 
 			winParent.focus();
-			window.opener.close();
+			
 			window.close();
 		} else if (globalVars.recordType == "MAPC1") {
 			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_firstContractNumber").value = globalVars.selectedConsignee;
@@ -270,7 +270,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "MAPC2") {
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_secondContractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_secondAgriculturePlotID").value = selectedRow.agriculturePlotID;
@@ -283,7 +283,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "APIC") {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
@@ -299,7 +299,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "ACAR") {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
@@ -309,7 +309,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "APCR") {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
@@ -318,7 +318,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "AAPC") {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
@@ -335,7 +335,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		} else if (globalVars.recordType == "CTIR") {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
@@ -346,7 +346,7 @@ function selectAGCT() {
 
 			winParent.focus();
 			window.close();
-			window.opener.close();
+			
 		}
 
 	} catch (error) {
