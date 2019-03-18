@@ -212,7 +212,6 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet ID").value = selectedRow.agriculturePlotID;
 
 			winParent.focus();
-			window.opener.close();
 			window.close();
 		} 
 
