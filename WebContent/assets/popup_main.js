@@ -33,7 +33,7 @@ function initJSPage(resourcesUrl, currentUserID, userSessionId, lang, conpId, ch
 				alert(error.message);
 			}
 			$(window).on("beforeunload", function() {
-				window.opener.close();
+				//window.opener.close();
 
 				if (globalVars.childWindow) {
 					globalVars.childWindow.close();
