@@ -248,27 +248,37 @@ html {
 	  position: relative;
 	  display: block;
 	  height: 20px;
-	  /* overflow: hidden; */
-  }
+	  overflow: hidden;
+	 }
   
   .paging_block_container > *{
 	  display: inline-block;
   }
   
   .paging_block{
-	  display: block;
-	  text-align: center;
-	  margin: auto;
-	  max-width: 0px;
-	  overflow: hidden;
-	  transition: 0.5s all;
-	  display: none;
+  	  position: relative;
+  	  display: block;
+  	  text-align: center;
+  	  margin: auto;
+  	  /* max-width: 0px; */
+  	  overflow: hidden;
+  	  transition: 0.5s all;
+  	  display: none;
+  	  left: -600px;
   }
   .enable_block{
 	display: block;
+	/* left: 1200px; */
+	}
+  .slide_left{
+	left: 600px;	  
   }
+  .slide_right{
+	left: -600px;	  
+  }  
   .show_block{
-    max-width: 600px;
+    /* max-width: 600px; */
+    left: 0px;
   }
   .paging_block>*{
 	  text-align: center;
