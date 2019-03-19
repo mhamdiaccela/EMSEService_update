@@ -36,7 +36,6 @@ function initJSPage(resourcesUrl, currentUserID, userSessionId, lang, conpId, ch
 				alert(error.message);
 			}
 			$(window).on("beforeunload", function() {
-				//window.opener.close();
 				if (globalVars.childWindow) {
 					globalVars.childWindow.close();
 				}
@@ -242,7 +241,10 @@ function isNumeric(n) {
 function closeWindow() {
 	window.close();
 }
-
+function convertHTMLEncodedToText(htmlEncoded){
+	var result = $('<textarea />').html(htmlEncoded).text();
+	return result;
+}
 function decode64(input) {
 
 	var keyStr = "ABCDEFGHIJKLMNOP" +
