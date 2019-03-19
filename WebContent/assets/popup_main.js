@@ -136,24 +136,27 @@ function buildRecordPageList(resultCount) {
 	var pageCount = Math.ceil(resultCount / globalVars.pageLimit);
 	globalVars.pageCount = pageCount;
 	globalVars.resultCount = resultCount;
-	globalVars.pageBlock = 1;
+	globalVars.pageBlock = Math.ceil(globalVars.pageNumber/globalVars.pageBlockLimit);
 	globalVars.pageBlockTotal = Math.ceil(pageCount/globalVars.pageBlockLimit);
 
 	if (globalVars.lang == "ar_AE"){
-		var htmlOutput = '<b> صفحة النتائج : </b>';
+		var htmlOutput = '<div class="results_header">النتائج</div>';
 	}else{
-		var htmlOutput = '<b>Result Page: </b>';
+		var htmlOutput = '<div class="results_header">Results</div>';
 	}
-	htmlOutput += '<div class="paging_container"><a href="#" class="paging_prev" style="margin-right:4px" onclick="gotoPrev()">Prev &lt;&lt;</a><div class="paging_block_container"><div class="paging_block enable_block show_block" id="paging_block_1">';
+	var showBlockClass = " enable_block show_block";
+	var firstBlockClass = (globalVars.pageBlock==1)?showBlockClass:"";
+	htmlOutput += '<div class="paging_container"><span href="#" class="paging paging_prev" style="margin-right:4px" onclick="gotoPrev()">prev &lt;&lt;</span><div class="paging_block_container"><div class="paging_block'+firstBlockClass+'" id="paging_block_1">';
 	for (var i = 0; i < pageCount; i++) {
 		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
 		if ( (((i+1) % globalVars.pageBlockLimit) == 0) &&  (i != pageCount-1 ) ){
-			var pageBlock = (parseInt(i+1)/globalVars.pageBlockLimit) + 1;
-			htmlOutput += '<a class="dots" onclick="gotoNext()">...</a></div><div class="paging_block" id="paging_block_'+pageBlock+'">';
+			var thisPageBlock = (parseInt(i+1)/globalVars.pageBlockLimit) + 1;
+			var blockClass = (globalVars.pageBlock==thisPageBlock)?showBlockClass:"";
+			htmlOutput += '<span class="paging dots" onclick="gotoNext()">...</span></div><div class="paging_block'+blockClass+'" id="paging_block_'+thisPageBlock+'">';
 		}
 	}
 	htmlOutput += '</div></div>';
-	htmlOutput += '<a href="#" class="paging_next" style="margin-right:4px" onclick="gotoNext()">Next &gt;&gt;</a></div>';
+	htmlOutput += '<span href="#" class="paging paging_next" style="margin-right:4px" onclick="gotoNext()">next &gt;&gt;</span></div>';
 	$("#pageingDiv").html(htmlOutput);
 }
 function gotoNext(){
@@ -176,7 +179,7 @@ function gotoNext(){
 					}, 10);
 				}, 10);
 			}, 10);			
-		}, 250);
+		}, 300);
 	}
 }
 function gotoPrev(){
@@ -200,7 +203,7 @@ function gotoPrev(){
 					}, 10);
 				}, 10);
 			}, 10);			
-		}, 250);
+		}, 300);
 	}
 }
 

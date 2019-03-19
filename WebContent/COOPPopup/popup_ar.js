@@ -192,7 +192,6 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = selectedRow.coopNumber;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = selectedRow.address;
-
 			winParent.focus();
 			window.close();
 		}
