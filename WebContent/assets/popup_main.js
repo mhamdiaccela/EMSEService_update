@@ -11,6 +11,9 @@ var globalVars = {
 	selectedConsigneeEnglishName : "",
 	pageNumber : 1,
 	pageLimit : 4,
+	pageCount : 0,
+	pageBlock: 1,
+	pageBlockLimit: 20,
 	resultCount : 0,
 	childWindow : false,
 	alterColor : true
@@ -130,23 +133,64 @@ function loadjscssfile(filename, filetype) {
 }
 
 function buildRecordPageList(resultCount) {
-	globalVars.resultCount = resultCount;
 	var pageCount = Math.ceil(resultCount / globalVars.pageLimit);
+	globalVars.pageCount = pageCount;
+	globalVars.resultCount = resultCount;
+	globalVars.pageBlock = 1;
+	globalVars.pageBlockTotal = Math.ceil(pageCount/globalVars.pageBlockLimit);
+
 	if (globalVars.lang == "ar_AE"){
 		var htmlOutput = '<b> صفحة النتائج : </b>';
 	}else{
 		var htmlOutput = '<b>Result Page: </b>';
 	}
-	htmlOutput += '<div class="paging_container"><a href="#" class="paging_prev" style="margin-right:4px" onclick="">Prev &lt;&lt;</a><div class="paging_block_container"><div class="paging_block" id="paging_block_1">';
+	htmlOutput += '<div class="paging_container"><a href="#" class="paging_prev" style="margin-right:4px" onclick="gotoPrev()">Prev &lt;&lt;</a><div class="paging_block_container"><div class="paging_block enable_block show_block" id="paging_block_1">';
 	for (var i = 0; i < pageCount; i++) {
 		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
-		if ( (((i+1) % 20) == 0) &&  (i != pageCount-1 ) ){
-			htmlOutput += '</div><div class="paging_block" id="paging_block_'+parseInt(i+1)+'">';
+		if ( (((i+1) % globalVars.pageBlockLimit) == 0) &&  (i != pageCount-1 ) ){
+			var pageBlock = (parseInt(i+1)/globalVars.pageBlockLimit) + 1;
+			htmlOutput += '<a class="dots" onclick="gotoNext()">...</a></div><div class="paging_block" id="paging_block_'+pageBlock+'">';
 		}
 	}
 	htmlOutput += '</div></div>';
-	htmlOutput += '<a href="#" class="paging_next" style="margin-right:4px" onclick="">Next &gt;&gt;</a></div>';
+	htmlOutput += '<a href="#" class="paging_next" style="margin-right:4px" onclick="gotoNext()">Next &gt;&gt;</a></div>';
 	$("#pageingDiv").html(htmlOutput);
+}
+function gotoNext(){
+	var newPageBlock = globalVars.pageBlock + 1;
+	if (newPageBlock>globalVars.pageBlockTotal){
+		return false;
+	}else{
+		globalVars.pageBlock = newPageBlock;
+		$(".paging_block").removeClass("show_block");
+		setTimeout(function(){
+			$(".paging_block").removeClass("enable_block");
+			setTimeout(function(){
+				$("#paging_block_"+newPageBlock).addClass("enable_block");
+				setTimeout(function(){
+					$("#paging_block_"+newPageBlock).addClass("show_block");
+				}, 10);
+			}, 10);			
+		}, 500);
+	}
+}
+function gotoPrev(){
+	var newPageBlock = globalVars.pageBlock - 1;
+	if (newPageBlock<=0){
+		return false;
+	}else{
+		globalVars.pageBlock = newPageBlock;
+		$(".paging_block").removeClass("show_block");
+		setTimeout(function(){
+			$(".paging_block").removeClass("enable_block");
+			setTimeout(function(){
+				$("#paging_block_"+newPageBlock).addClass("enable_block");
+				setTimeout(function(){
+					$("#paging_block_"+newPageBlock).addClass("show_block");
+				}, 10);
+			}, 10);			
+		}, 500);
+	}
 }
 
 function updateWithdrawError(param) {
