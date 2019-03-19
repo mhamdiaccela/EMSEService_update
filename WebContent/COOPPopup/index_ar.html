@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="../assets/style.css">
 		<link rel="stylesheet" type="text/css" href="../assets/style_ar.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -14,12 +14,12 @@
 				<div id="searchDiv">
 					<form>
 						<fieldset>
-							<legend>������ ����� :</legend>
+							<legend>خيارات البحث :</legend>
 							<table id="searchTable">
 								<tr>
-									<td style="" class="tableLbl">��� �������</td>
+									<td style="" class="tableLbl">اسم الجمعية</td>
 									<td><input style="" type="text" id="coopName"></input></td>
-									<td style="" class="tableLbl">��� �������</td>
+									<td style="" class="tableLbl">رقم الجمعية</td>
 									<td><input style="" type="text" id="coopNumber"></input></td>
 
 								</tr>
@@ -28,8 +28,8 @@
 						</fieldset>
 					</form>
 					<div class="buttonsContainer">
-						<button onclick="searchRecord(1)" style="margin-right: 10px;">���</button>
-						<button onclick="resetRecordSearch()">�����</button>
+						<button onclick="searchRecord(1)" style="margin-right: 10px;">بحث</button>
+						<button onclick="resetRecordSearch()">إعاده</button>
 					</div>
 				</div>
 			</div>
@@ -44,8 +44,8 @@
 				<table id="recordListTable">
 				</table>
 				<div class="buttonsContainer">
-					<button onclick="selectCOOP()" style="margin-right: 10px;">������</button>
-					<button onclick="closeWindow()">�����</button>
+					<button onclick="selectCOOP()" style="margin-right: 10px;">اختيار</button>
+					<button onclick="closeWindow()">إغلاق</button>
 				</div>
 			</div>
 		</div>
