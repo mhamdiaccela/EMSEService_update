@@ -11,6 +11,9 @@ var globalVars = {
 	selectedConsigneeEnglishName : "",
 	pageNumber : 1,
 	pageLimit : 4,
+	pageCount : 0,
+	pageBlock: 1,
+	pageBlockLimit: 20,
 	resultCount : 0,
 	childWindow : false,
 	alterColor : true
@@ -127,6 +130,81 @@ function loadjscssfile(filename, filetype) {
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 	}
 
+}
+
+function buildRecordPageList(resultCount) {
+	var pageCount = Math.ceil(resultCount / globalVars.pageLimit);
+	globalVars.pageCount = pageCount;
+	globalVars.resultCount = resultCount;
+	globalVars.pageBlock = Math.ceil(globalVars.pageNumber/globalVars.pageBlockLimit);
+	globalVars.pageBlockTotal = Math.ceil(pageCount/globalVars.pageBlockLimit);
+
+	if (globalVars.lang == "ar_AE"){
+		var htmlOutput = '<div class="results_header">النتائج</div>';
+	}else{
+		var htmlOutput = '<div class="results_header">Results</div>';
+	}
+	var showBlockClass = " enable_block show_block";
+	var firstBlockClass = (globalVars.pageBlock==1)?showBlockClass:"";
+	htmlOutput += '<div class="paging_container"><span href="#" class="paging paging_prev" style="margin-right:4px" onclick="gotoPrev()">prev &lt;&lt;</span><div class="paging_block_container"><div class="paging_block'+firstBlockClass+'" id="paging_block_1">';
+	for (var i = 0; i < pageCount; i++) {
+		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
+		if ( (((i+1) % globalVars.pageBlockLimit) == 0) &&  (i != pageCount-1 ) ){
+			var thisPageBlock = (parseInt(i+1)/globalVars.pageBlockLimit) + 1;
+			var blockClass = (globalVars.pageBlock==thisPageBlock)?showBlockClass:"";
+			htmlOutput += '<span class="paging dots" onclick="gotoNext()">...</span></div><div class="paging_block'+blockClass+'" id="paging_block_'+thisPageBlock+'">';
+		}
+	}
+	htmlOutput += '</div></div>';
+	htmlOutput += '<span href="#" class="paging paging_next" style="margin-right:4px" onclick="gotoNext()">next &gt;&gt;</span></div>';
+	$("#pageingDiv").html(htmlOutput);
+}
+function gotoNext(){
+	var newPageBlock = globalVars.pageBlock + 1;
+	if (newPageBlock>globalVars.pageBlockTotal){
+		return false;
+	}else{
+		globalVars.pageBlock = newPageBlock;
+		$(".paging_block").removeClass("slide_right");
+		$(".paging_block").removeClass("slide_left");
+		$(".paging_block").removeClass("show_block");
+		setTimeout(function(){
+			$(".paging_block").removeClass("enable_block");
+			setTimeout(function(){
+				$("#paging_block_"+newPageBlock).addClass("slide_left");
+				setTimeout(function(){
+					$("#paging_block_"+newPageBlock).addClass("enable_block");
+					setTimeout(function(){
+						$("#paging_block_"+newPageBlock).addClass("show_block");
+					}, 10);
+				}, 10);
+			}, 10);			
+		}, 300);
+	}
+}
+function gotoPrev(){
+	var newPageBlock = globalVars.pageBlock - 1;
+	if (newPageBlock<=0){
+		return false;
+	}else{
+		globalVars.pageBlock = newPageBlock;
+		$(".paging_block").removeClass("slide_right");		
+//		$(".paging_block").removeClass("slide_left");
+		$(".paging_block").removeClass("show_block");
+		setTimeout(function(){
+			$(".paging_block").removeClass("enable_block");
+			setTimeout(function(){
+				$("#paging_block_"+newPageBlock).addClass("slide_left");
+				$("#paging_block_"+newPageBlock).addClass("slide_right");
+				setTimeout(function(){
+					$("#paging_block_"+newPageBlock).addClass("enable_block");
+					setTimeout(function(){
+						$("#paging_block_"+newPageBlock).addClass("show_block");
+					}, 10);
+				}, 10);
+			}, 10);			
+		}, 300);
+	}
 }
 
 function updateWithdrawError(param) {
