@@ -125,17 +125,6 @@ function builRecordlist(arr) {
 	$('#recordListTable').html(htmlOutput);
 }
 
-function buildRecordPageList(resultCount) {
-	globalVars.resultCount = resultCount;
-	var pageCount = Math.ceil(resultCount / globalVars.pageLimit);
-	var htmlOutput = '<b>Result Page: </b>';
-	for (var i = 0; i < pageCount; i++) {
-		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
-	}
-	htmlOutput += '<a href="#" style="margin-right:4px" onclick="searchRecordPage(' + (globalVars.pageNumber + 1) + ')">Next &gt;&gt;</a>';
-	$("#pageingDiv").html(htmlOutput);
-}
-
 function getNameEnglishBySelectedConsigneeId(selectedConsigneeId) {
 
 	for ( var index in arrayOfData) {

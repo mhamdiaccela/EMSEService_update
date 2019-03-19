@@ -225,3 +225,20 @@ a {
 	/* This is the "most important" one because it's the current standard in CSS. This will work in most versions of Firefox, Safari, and Opera. */  
 	opacity: 0.6; 
 }
+
+.paging_container > *{
+	display: inline-block;
+}
+
+.paging_block_container{
+	width: 50%;
+	margin:auto;
+}
+
+.paging_block_container > *{
+	display: inline-block;
+}
+
+.paging_block{
+	display: inline-block;
+}

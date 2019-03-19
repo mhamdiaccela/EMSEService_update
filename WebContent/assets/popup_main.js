@@ -129,6 +129,26 @@ function loadjscssfile(filename, filetype) {
 
 }
 
+function buildRecordPageList(resultCount) {
+	globalVars.resultCount = resultCount;
+	var pageCount = Math.ceil(resultCount / globalVars.pageLimit);
+	if (globalVars.lang == "ar_AE"){
+		var htmlOutput = '<b> صفحة النتائج : </b>';
+	}else{
+		var htmlOutput = '<b>Result Page: </b>';
+	}
+	htmlOutput += '<div class="paging_container"><a href="#" class="paging_prev" style="margin-right:4px" onclick="">Prev &lt;&lt;</a><div class="paging_block_container"><div class="paging_block" id="paging_block_1">';
+	for (var i = 0; i < pageCount; i++) {
+		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
+		if ( (((i+1) % 20) == 0) &&  (i != pageCount-1 ) ){
+			htmlOutput += '</div><div class="paging_block" id="paging_block_'+parseInt(i+1)+'">';
+		}
+	}
+	htmlOutput += '</div></div>';
+	htmlOutput += '<a href="#" class="paging_next" style="margin-right:4px" onclick="">Next &gt;&gt;</a></div>';
+	$("#pageingDiv").html(htmlOutput);
+}
+
 function updateWithdrawError(param) {
 	alert("The deposit must be paid to be withdrawn.");
 }
