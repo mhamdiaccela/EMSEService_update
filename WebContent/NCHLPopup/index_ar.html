@@ -8,8 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="style_ar.css">
 		<script src="../assets/popup_main.js"></script>
 	</head>
+
 	<body>
-		<div id="firsDiv" style="direction: rtl;">
+		<div id="firsDiv">
 			<div id="searchParentDiv">
 				<div id="searchDiv">
 					<form>
@@ -20,7 +21,6 @@
 									<td style="" class="tableLbl">رقم الرخصة</td>
 									<td><input style="" type="text"
 										id="licenseNumber"></input></td>
-										
 									<td style="" class="tableLbl">رقم الشالية</td>
 									<td><input style="" type="text" id="chaletID"></input></td>
 								</tr>
@@ -28,20 +28,19 @@
 									<td style="" class="tableLbl">منتجع ?</td>
 									<td><input style="" type="checkbox" id="IsResort"></input></td>
 								</tr>
-	
 							</table>
 						</fieldset>
 					</form>
 					<div class="buttonsContainer">
 						<button onclick="searchRecord(1)" style="margin-right: 10px;">بحث</button>
-						<button onclick="resetRecordSearch()">إعاده</button>
+						<button onclick="resetRecordSearch()">إعادة</button>
 					</div>
 				</div>
 			</div>
-
+	
 			<div style="display: none" id="noFirsLabel">
 				<script>
-					document.write("������ ������");
+					document.write("لا يوجد بيانات");
 				</script>
 			</div>
 			<div id="searchResultContainer" style="display: none">
@@ -49,8 +48,8 @@
 				<table id="recordListTable">
 				</table>
 				<div class="buttonsContainer">
-					<button onclick="selectAGCT()" style="margin-right: 10px;">اختيار</button>
-					<button onclick="closeWindow()">اغلاق</button>
+					<button onclick="selectNCHL()" style="margin-right: 10px;">إختيار</button>
+					<button onclick="closeWindow()">إغلاق</button>
 				</div>
 			</div>
 		</div>
