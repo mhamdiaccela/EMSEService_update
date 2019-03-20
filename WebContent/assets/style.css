@@ -38,10 +38,10 @@ html {
   }
   
   th {
-	  color: #ffffffb8;
+	  color: rgba(255, 255, 255, 0.7);
 	  background-color: #6a6a9e;
 	  font-weight: normal;
-  }
+	 }
   
   input {
 	  font-size: 1em;
