@@ -184,7 +184,7 @@ function searchRecord(pageNumber) {
 
 function selectNCHL() {
 
-	var winParent = window.opener.window.opener;
+	var winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
 			alert("الرجاء اختيار رخصة");
@@ -198,7 +198,6 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = selectedRow.chaletID;
 
 			winParent.focus();
-			window.opener.close();
 			window.close();
 		} 
 		
@@ -206,7 +205,6 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
 
 			winParent.focus();
-			window.opener.close();
 			window.close();
 		} 
 

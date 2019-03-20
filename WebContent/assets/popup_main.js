@@ -133,13 +133,17 @@ function buildRecordPageList(resultCount) {
 	globalVars.pageBlockTotal = Math.ceil(pageCount/globalVars.pageBlockLimit);
 
 	if (globalVars.lang == "ar_AE"){
+		var next = "التالي";
+		var prev = "السابق";
 		var htmlOutput = '<div class="results_header">النتائج</div>';
 	}else{
+		var next = "next";
+		var prev = "prev";		
 		var htmlOutput = '<div class="results_header">Results</div>';
 	}
 	var showBlockClass = " enable_block show_block";
 	var firstBlockClass = (globalVars.pageBlock==1)?showBlockClass:"";
-	htmlOutput += '<div class="paging_container"><span href="#" class="paging paging_prev" style="margin-right:4px" onclick="gotoPrev()">prev &lt;&lt;</span><div class="paging_block_container"><div class="paging_block'+firstBlockClass+'" id="paging_block_1">';
+	htmlOutput += '<div class="paging_container"><span href="#" class="paging paging_prev" style="margin-right:4px" onclick="gotoPrev()">'+prev+' &lt;&lt;</span><div class="paging_block_container"><div class="paging_block'+firstBlockClass+'" id="paging_block_1">';
 	for (var i = 0; i < pageCount; i++) {
 		htmlOutput += '<a id="page-' + (i + 1) + '" href="#" style="margin-right:4px" onclick="searchRecordPage(' + (i + 1) + ')">' + (i + 1) + '</a>';
 		if ( (((i+1) % globalVars.pageBlockLimit) == 0) &&  (i != pageCount-1 ) ){
@@ -149,7 +153,7 @@ function buildRecordPageList(resultCount) {
 		}
 	}
 	htmlOutput += '</div></div>';
-	htmlOutput += '<span href="#" class="paging paging_next" style="margin-right:4px" onclick="gotoNext()">next &gt;&gt;</span></div>';
+	htmlOutput += '<span href="#" class="paging paging_next" style="margin-right:4px" onclick="gotoNext()">'+next+' &gt;&gt;</span></div>';
 	$("#pageingDiv").html(htmlOutput);
 }
 function gotoNext(){
