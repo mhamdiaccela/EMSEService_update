@@ -237,7 +237,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "PLCR") {
 
@@ -246,7 +246,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "ISPO") {
 
@@ -255,14 +255,14 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "APPO") {
 
 			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "PSPO") {
 
@@ -273,7 +273,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "TAPO") {
 
@@ -282,7 +282,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		} else if (globalVars.recordType == "PLCA") {
 
@@ -295,7 +295,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_planNumber").value = selectedRow.planNumber;
 			winParent.focus();
 			window.close();
-			//window.opener.close();
+			// 
 
 		}
 
@@ -306,7 +306,7 @@ function selectPLCA() {
 
 function closeWindow() {
 	window.close();
-	//window.opener.close();
+	// 
 }
 
 function resetRecordSearch() {
