@@ -1,11 +1,18 @@
 package com.accela.web;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,17 +56,24 @@ public class Service extends HttpServlet {
 			}
 		} catch (Exception e) {
 		}
+		
+		logging("\n\nNew Request");
 
 		String output = triggerScript(jb.toString());
 		response.getOutputStream().println(output);
 	}
 	
 	protected String triggerScript(String input) {
+		logging("Received Input: " + input);
 		JSONObject obj = new JSONObject(input);
 		String sessionId = obj.getString("sessionId");
+		logging("sessionId: " + sessionId);
 		String serviceProviderCode = obj.getString("serviceProviderCode");
+		logging("serviceProviderCode: " + serviceProviderCode);
 		String callerId = obj.getString("callerId");
+		logging("callerId: " + callerId);
 		String scriptName = obj.getString("scriptName");
+		logging("scriptName: " + scriptName);
 		JSONArray parameters = obj.getJSONArray("parameters");
 		
 		// Build the XML request
@@ -95,6 +109,7 @@ public class Service extends HttpServlet {
 		
 		try {
 			String output = sendPost(xmlRequest);
+			logging("output: " + output);
 			
 			JSONObject jsonObj = XML.toJSONObject(output);
 			JSONArray multiRefArr = jsonObj.getJSONObject("soapenv:Envelope").
@@ -129,9 +144,12 @@ public class Service extends HttpServlet {
 				}
 			}
 			
+			logging("Returning: \n" + mainObj.toString());
 			return mainObj.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
+			logging("ERR#1: " + e.getMessage());
+			logging("ERR#11: " + e.toString());
 			return "{\"error\": \"Exception Occured: " + e.getMessage() + "\"}";
 		}
 	}
@@ -165,4 +183,58 @@ public class Service extends HttpServlet {
 		return response.toString();
 	}
 
+	private void logging(String str){
+		str = str + "\n";
+		String FILENAME = "C:\\test\\EMSE.log";
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+
+		try {
+
+			File file = new File(FILENAME);
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			// true = append file
+			fw = new FileWriter(file.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+			
+			str = getDateTime() + "# " + str;
+
+			bw.write(str);
+
+			System.out.println("Done");
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (bw != null)
+					bw.close();
+
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+
+			}
+		}
+	}
+	
+	private String getDateTime(){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+		Date now = new Date();
+		return format.format(now);
+	}
+	
 }
