@@ -189,7 +189,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = selectedRow.chaletID;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 
@@ -197,7 +197,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "ACLA") {
@@ -205,7 +205,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "UCTR") {
@@ -213,7 +213,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "ARES") {
@@ -221,7 +221,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "MACH") {
@@ -229,7 +229,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "PLIC") {
@@ -237,7 +237,7 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "SCHA") {
@@ -245,17 +245,16 @@ function selectNCHL() {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
 		if (globalVars.recordType == "TWMA") {
 			winParent.document.getElementById("app_spec_info_CERTIFICATETYPE_Chalet_ID").value = selectedRow.chaletID;
 
 			winParent.focus();
-			window.opener.close();
+
 			window.close();
 		}
-
 
 	} catch (error) {
 		alert(error.message);

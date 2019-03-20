@@ -183,7 +183,7 @@ function searchRecord(pageNumber) {
 }
 
 function selectNCHL() {
-	var winParent = window.opener.window.opener;
+	var winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
 			alert("الرجاء اختيار رخصة");
