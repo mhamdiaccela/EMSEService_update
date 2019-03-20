@@ -1,3 +1,7 @@
+body{
+    direction: rtl;
+}
+
 .paging_next {
     position: absolute;
     right: auto;
