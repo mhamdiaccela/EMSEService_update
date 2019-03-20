@@ -170,9 +170,9 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-
-	searchRecordRequest($("#licenseNumber").val(), $("#chaletID").val(), $("#licenseIssuanceDate").val(), $("#IsResort").val(),
-		pageNumber, globalVars.pageLimit);
+	var resort = $("#IsResort").is(':checked') ? 'Yes' : 'No';
+	searchRecordRequest($("#licenseNumber").val(), $("#chaletID").val(), resort,
+			pageNumber, globalVars.pageLimit);
 }
 
 function selectNCHL() {
