@@ -1,33 +1,33 @@
-//alert('........ Hamdiiiiiiiiiiiiiiiiiii');
 var selectedRow = {
-	licenseNumber : "",
-	chaletID : "",
-	licenseIssuanceDate : "",
-	IsResort : ""
+	licenseNumber: "",
+	chaletID: "",
+	IsResort: ""
 }
 
-function searchRecordRequest(licenseNumber, chaletID, licenseIssuanceDate, IsResort) {
-	//alert('........ 1 searchRecordRequest');
+function searchRecordRequest(licenseNumber, chaletID, IsResort, page, limit) {
+
 	try {
 		showSearchLoading();
 
 		var returnValue = "";
 		var prosData = "{sessionId:'" + globalVars.userSessionId + "', serviceProviderCode:'MOFK', callerId:'" + globalVars.currentUserID
-				+ "', scriptName:'SEARCH_NCHL_RECORDS', parameters:[{Key:'licenseNumber', Value:'" + licenseNumber + "'}," + "{Key:'chaletID', Value:'"
-				+ String(chaletID) + "'}," + "{Key:'licenseIssuanceDate', Value:'" + String(licenseIssuanceDate) + "'}," + "{Key:'IsResort', Value:'"
-				+ String(IsResort) + "'}]}";
+			+ "', scriptName:'SEARCH_NCHL_RECORDS', parameters:[{Key:'licenseNumber', Value:'" + licenseNumber + "'}," + "{Key:'chaletID', Value:'"
+			+ String(chaletID) + "'},"
+			+ "{Key:'IsResort', Value:'" + String(IsResort) + "'}," +
+			"{Key:'pageLimit', Value:'" + page + "," + limit + "'},"
+			+ "{Key:'action', Value:'searchRecordRecords'}]}";
 		$.ajax({
-			url : globalVars.emseServiceUrl,
-			type : "POST",
-			async : true,
-			data : prosData,
-			dataType : "json",
-			contentType : "application/json",
-			error : function(x, e) {
-				alert("error: " + e + x.responseText);
+			url: globalVars.emseServiceUrl,
+			type: "POST",
+			async: true,
+			data: prosData,
+			dataType: "json",
+			contentType: "application/json",
+			error: function (x, e) {
+				alert("error: " + e + " , RES: " + x.responseText);// + ' , JSON: ' + prosData);
 				hideSearchLoading();
 			},
-			success : function(data) {
+			success: function (data) {
 
 				var responseHTML = data.d;
 				if (responseHTML && responseHTML.output && responseHTML.output.wholeResults) {
@@ -69,7 +69,7 @@ function builRecordlist(arr) {
 		$("#pageingDiv").css('display', 'none');
 	}
 
-	htmlOutput += '<tr><th></th><th>License Number</th><th>Chalet ID</th><th>Issuances Date</th><th>Is Resort ?</th>';
+	htmlOutput += '<tr><th></th><th>License Number</th><th>Chalet ID</th><th>Is Resort ?</th>';
 
 	for (var i = 0; i < arr.length; i++) {
 		if (i % 2 == 0) {
@@ -82,14 +82,13 @@ function builRecordlist(arr) {
 		objData.licenseNumber = arr[i]["itemId"];
 		objData.chaletID = arr[i]["chaletID"];
 		objData.IsResort = arr[i]["IsResort"];
-		objData.licenseIssuanceDate = arr[i]["licenseIssuanceDate"];
-		
+
 		arrayOfData[i] = objData;
 
-		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
-		htmlOutput += '<td>' + arr[i]["chaletID"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["IsResort"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["licenseIssuanceDate"] + '</td>';
+		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.licenseNumber + '"></input></td>';
+		htmlOutput += '<td>' + objData.licenseNumber + '</td>';
+		htmlOutput += '<td>' + objData.chaletID + '</td>';
+		htmlOutput += '<td>' + objData.IsResort + '</td>';
 		htmlOutput += '</tr>';
 
 	}
@@ -98,7 +97,7 @@ function builRecordlist(arr) {
 
 function getNameEnglishBySelectedConsigneeId(selectedConsigneeId) {
 
-	for ( var index in arrayOfData) {
+	for (var index in arrayOfData) {
 		var object = arrayOfData[index];
 		if (object.consigneeId == selectedConsigneeId) {
 			return object.consigneeEnglishName;
@@ -110,20 +109,9 @@ function recordClick(obj) {
 
 		globalVars.selectedConsignee = obj.value;
 		for (data in arrayOfData) {
-			if (obj.value == arrayOfData[data].itemId) {
-				selectedRow.currentContractLicenseNumber = arrayOfData[data].itemId;
-				selectedRow.caseFileBarcode = arrayOfData[data].caseFileBarcode;
-				selectedRow.activitytype = arrayOfData[data].activitytype;
-				selectedRow.surfacearea = arrayOfData[data].surfacearea;
-				selectedRow.ismortgaged = arrayOfData[data].ismortgaged;
-				selectedRow.utilization = arrayOfData[data].utilization;
-				selectedRow.Address1 = arrayOfData[data].Address1;
-				selectedRow.agriculturePlotID = arrayOfData[data].agriculturePlotID;
-				selectedRow.mortgageDate = arrayOfData[data].mortgageDate;
-				selectedRow.mortgageEndDate = arrayOfData[data].mortgageEndDate;
-				selectedRow.plotStatus = arrayOfData[data].plotStatus;
-				selectedRow.contractType = arrayOfData[data].contractType;
-				selectedRow.contractDurationYears = arrayOfData[data].contractDurationYears;
+			if (obj.value == arrayOfData[data].licenseNumber) {
+				selectedRow.licenseNumber = arrayOfData[data].licenseNumber;
+				selectedRow.chaletID = arrayOfData[data].chaletID;
 				break;
 			}
 
@@ -182,9 +170,9 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	//alert('........ 1');
+
 	searchRecordRequest($("#licenseNumber").val(), $("#chaletID").val(), $("#licenseIssuanceDate").val(), $("#IsResort").val(),
-			pageNumber, globalVars.pageLimit);
+		pageNumber, globalVars.pageLimit);
 }
 
 function selectNCHL() {
@@ -192,17 +180,82 @@ function selectNCHL() {
 	var winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
-			alert("Please select a NCHL");
+			alert("Please select an NCHL");
 			return;
 		}
 		if (globalVars.recordType == "CCHA") {
 
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_License Number").value = globalVars.selectedConsignee;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet ID").value = selectedRow.agriculturePlotID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_License_Number").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = selectedRow.chaletID;
 
 			winParent.focus();
+			window.opener.close();
 			window.close();
-		} 
+		}
+
+		if (globalVars.recordType == "FICN") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "ACLA") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "UCTR") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "ARES") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "MACH") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "PLIC") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "SCHA") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+		if (globalVars.recordType == "TWMA") {
+			winParent.document.getElementById("app_spec_info_CERTIFICATETYPE_Chalet_ID").value = selectedRow.chaletID;
+
+			winParent.focus();
+			window.opener.close();
+			window.close();
+		}
+
 
 	} catch (error) {
 		alert(error.message);

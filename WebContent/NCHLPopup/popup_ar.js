@@ -1,7 +1,7 @@
 var selectedRow = {
-	licenseNumber : "",
-	chaletID : "",
-	IsResort : ""
+	licenseNumber: "",
+	chaletID: "",
+	IsResort: ""
 }
 
 function updateWithdrawError(param) {
@@ -18,23 +18,23 @@ function searchRecordRequest(licenseNumber, chaletID, IsResort, page, limit) {
 
 		var returnValue = "";
 		var prosData = "{sessionId:'" + globalVars.userSessionId + "', serviceProviderCode:'MOFK', callerId:'" + globalVars.currentUserID
-				+ "', scriptName:'SEARCH_NCHL_RECORDS', parameters:[{Key:'licenseNumber', Value:'" + licenseNumber + "'}," + "{Key:'chaletID', Value:'"
-				+ String(chaletID) + "'}," 
-				+ "{Key:'IsResort', Value:'" + String(IsResort)+ "'},"  +  
-				"{Key:'pageLimit', Value:'" + page + "," + limit + "'},"
-				+ "{Key:'action', Value:'searchRecordRecords'}]}";
+			+ "', scriptName:'SEARCH_NCHL_RECORDS', parameters:[{Key:'licenseNumber', Value:'" + licenseNumber + "'}," + "{Key:'chaletID', Value:'"
+			+ String(chaletID) + "'},"
+			+ "{Key:'IsResort', Value:'" + String(IsResort) + "'}," +
+			"{Key:'pageLimit', Value:'" + page + "," + limit + "'},"
+			+ "{Key:'action', Value:'searchRecordRecords'}]}";
 		$.ajax({
-			url : globalVars.emseServiceUrl,
-			type : "POST",
-			async : true,
-			data : prosData,
-			dataType : "json",
-			contentType : "application/json",
-			error : function(x, e) {
+			url: globalVars.emseServiceUrl,
+			type: "POST",
+			async: true,
+			data: prosData,
+			dataType: "json",
+			contentType: "application/json",
+			error: function (x, e) {
 				alert("error: " + e + " , RES: " + x.responseText);// + ' , JSON: ' + prosData);
 				hideSearchLoading();
 			},
-			success : function(data) {
+			success: function (data) {
 
 				var responseHTML = data.d;
 				if (responseHTML && responseHTML.output && responseHTML.output.wholeResults) {
@@ -89,7 +89,7 @@ function builRecordlist(arr) {
 		objData.licenseNumber = arr[i]["itemId"];
 		objData.chaletID = arr[i]["chaletID"];
 		objData.IsResort = arr[i]["IsResort"];
-		
+
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.licenseNumber + '"></input></td>';
@@ -104,7 +104,7 @@ function builRecordlist(arr) {
 
 function getNameEnglishBySelectedConsigneeId(selectedConsigneeId) {
 
-	for ( var index in arrayOfData) {
+	for (var index in arrayOfData) {
 		var object = arrayOfData[index];
 		if (object.consigneeId == selectedConsigneeId) {
 			return object.consigneeEnglishName;
@@ -179,34 +179,89 @@ function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
 	var resort = $("#IsResort").is(':checked') ? 'Yes' : 'No';
 	searchRecordRequest($("#licenseNumber").val(), $("#chaletID").val(), resort,
-			pageNumber, globalVars.pageLimit);
+		pageNumber, globalVars.pageLimit);
 }
 
 function selectNCHL() {
-
-	var winParent = window.opener;
+	var winParent = window.opener.window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
 			alert("الرجاء اختيار رخصة");
 			return;
 		}
 		if (globalVars.recordType == "CCHA") {
-			
-//			alert('licenseNumber: ' + selectedRow.licenseNumber + ' : chaletID: ' + selectedRow.chaletID);
-			
+
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_License_Number").value = selectedRow.licenseNumber;
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = selectedRow.chaletID;
 
 			winParent.focus();
+
 			window.close();
-		} 
-		
+		}
+
 		if (globalVars.recordType == "FICN") {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
 
 			winParent.focus();
+
 			window.close();
-		} 
+		}
+		if (globalVars.recordType == "ACLA") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "UCTR") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "ARES") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "MACH") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "PLIC") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "SCHA") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
+		if (globalVars.recordType == "TWMA") {
+			winParent.document.getElementById("app_spec_info_CERTIFICATETYPE_Chalet_ID").value = selectedRow.chaletID;
+
+			winParent.focus();
+
+			window.close();
+		}
+
 
 	} catch (error) {
 		alert(error.message);
