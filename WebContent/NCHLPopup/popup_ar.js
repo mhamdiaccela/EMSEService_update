@@ -191,8 +191,8 @@ function selectNCHL() {
 		}
 		if (globalVars.recordType == "CCHA") {
 
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_License_Number").value = selectedRow.licenseNumber;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_License_Number").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_Chalet_ID").value = convertHTMLEncodedToText(selectedRow.chaletID);
 
 			winParent.focus();
 
@@ -200,62 +200,62 @@ function selectNCHL() {
 		}
 
 		if (globalVars.recordType == "FICN") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = convertHTMLEncodedToText(selectedRow.chaletID);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "ACLA") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "UCTR") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletid").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "ARES") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "MACH") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletNumber").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "PLIC") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "SCHA") {
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
 			window.close();
 		}
 		if (globalVars.recordType == "TWMA") {
-			winParent.document.getElementById("app_spec_info_CERTIFICATETYPE_Chalet_ID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_CERTIFICATETYPE_Chalet_ID").value = convertHTMLEncodedToText(selectedRow.chaletID);
 
 			winParent.focus();
 
