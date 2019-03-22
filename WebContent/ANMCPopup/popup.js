@@ -11,130 +11,131 @@ var selectedRow = {
 	ContractUsage : "",
 	expectedContractEndDate : "",
 	totalRentingFees : "",
-	annualRentingFees : ""
+	annualRentingFees : "",
+	feesPerActivity: ""
 };
 
 var commercialActivityDDL = {
 	"select" : {
-		"ar" : "--أختيار--",
+		"ar_AE" : "--أختيار--",
 		"en" : "--select--"
 	},
 	"Alwafaraa WorkMarkets and Stores" : {
-		"ar" : "ورش ومحلات الوفرة",
+		"ar_AE" : "ورش ومحلات الوفرة",
 		"en" : "Alwafaraa WorkMarkets and Stores"
 	},
 	"Antennas" : {
-		"ar" : "هوائيات ( أنتينات )",
+		"ar_AE" : "هوائيات ( أنتينات )",
 		"en" : "Antennas"
 	},
 	"Banks/Telecommunications Companies" : {
-		"ar" : "البنوك وشركات الاتصالات",
+		"ar_AE" : "البنوك وشركات الاتصالات",
 		"en" : "Banks/Telecommunications Companies"
 	},
 	"Bird Market" : {
-		"ar" : "محلات سوق الطيور بالري",
+		"ar_AE" : "محلات سوق الطيور بالري",
 		"en" : "Bird Market"
 	},
 	"Commercial Sites (Inside Capital)" : {
-		"ar" : "(داخل العاصمة) مواقع تجارية",
+		"ar_AE" : "(داخل العاصمة) مواقع تجارية",
 		"en" : "Commercial Sites (Inside Capital)"
 	},
 	"Driving Schools" : {
-		"ar" : "مواقع تعليم قيادة السيارات",
+		"ar_AE" : "مواقع تعليم قيادة السيارات",
 		"en" : "Driving Schools"
 	},
 	"Expropriated Diwans" : {
-		"ar" : "الدواوين المستملكة",
+		"ar_AE" : "الدواوين المستملكة",
 		"en" : "Expropriated Diwans"
 	},
 	"Expropriated Houses" : {
-		"ar" : "بيوت مستملكة مستغلة من قبل جمعيات النفع العام والمؤسسات الحكومية",
+		"ar_AE" : "بيوت مستملكة مستغلة من قبل جمعيات النفع العام والمؤسسات الحكومية",
 		"en" : "Expropriated Houses"
 	},
 	"Expropriated Real Estate-Different Utilizations" : {
-		"ar" : "عقارات مستملكة ذات استغلالات مختلفة",
+		"ar_AE" : "عقارات مستملكة ذات استغلالات مختلفة",
 		"en" : "Expropriated Real Estate-Different Utilizations"
 	},
 	"Kiosks Used as Service Sites" : {
-		"ar" : "أكشاك مستغلة كمواقع خدمية",
+		"ar_AE" : "أكشاك مستغلة كمواقع خدمية",
 		"en" : "Kiosks Used as Service Sites"
 	},
 	"Land Sites" : {
-		"ar" : "مواقع قطع الأراضي",
+		"ar_AE" : "مواقع قطع الأراضي",
 		"en" : "Land Sites"
 	},
 	"Large Markets" : {
-		"ar" : "المحلات الكبيرة",
+		"ar_AE" : "المحلات الكبيرة",
 		"en" : "Large Markets"
 	},
 	"Large workMarkets" : {
-		"ar" : "الورش الكبيرة",
+		"ar_AE" : "الورش الكبيرة",
 		"en" : "Large workMarkets"
 	},
 	"Markets (Inside Capital)" : {
-		"ar" : "محلات الأسواق (داخل العاصمة)",
+		"ar_AE" : "محلات الأسواق (داخل العاصمة)",
 		"en" : "Markets (Inside Capital)"
 	},
 	"Markets inside Interior Market" : {
-		"ar" : "المحلات بالسوق الداخلي",
+		"ar_AE" : "المحلات بالسوق الداخلي",
 		"en" : "Markets inside Interior Market"
 	},
 	"Plots (Remote Areas)" : {
-		"ar" : "مواقع قطع أراضي (بمناطق نائية)",
+		"ar_AE" : "مواقع قطع أراضي (بمناطق نائية)",
 		"en" : "Plots (Remote Areas)"
 	},
 	"Restaurants/Kiosks(Printing/Accessories)" : {
-		"ar" : "المطاعم وأكشاك (الطباعة/المكتبة)",
+		"ar_AE" : "المطاعم وأكشاك (الطباعة/المكتبة)",
 		"en" : "Restaurants/Kiosks(Printing/Accessories)"
 	},
 	"Sale of Fodders" : {
-		"ar" : "مواقع بيع الأعلاف",
+		"ar_AE" : "مواقع بيع الأعلاف",
 		"en" : "Sale of Fodders"
 	},
 	"Signal Station" : {
-		"ar" : "محطات التقوية",
+		"ar_AE" : "محطات التقوية",
 		"en" : "Signal Station"
 	},
 	"Sites include Stores" : {
-		"ar" : "بسطات تضم مخازن",
+		"ar_AE" : "بسطات تضم مخازن",
 		"en" : "Sites include Stores"
 	},
 	"Small Markets" : {
-		"ar" : "المحلات الصغيرة الجانبية",
+		"ar_AE" : "المحلات الصغيرة الجانبية",
 		"en" : "Small Markets"
 	},
 	"Small WorkMarkets" : {
-		"ar" : "الورش الصغيرة الجانبية",
+		"ar_AE" : "الورش الصغيرة الجانبية",
 		"en" : "Small WorkMarkets"
 	},
 	"Women Market Sites" : {
-		"ar" : "مواقع بسطات سوق الحريم",
+		"ar_AE" : "مواقع بسطات سوق الحريم",
 		"en" : "Women Market Sites"
 	},
 }
 var utilizationDDLValues = {
 	"select" : {
-		"ar" : "--أختيار--",
+		"ar_AE" : "--أختيار--",
 		"en" : "--select--"
 	},
 	"Commercial Markets" : {
-		"ar" : "الأسواق التجارية",
+		"ar_AE" : "الأسواق التجارية",
 		"en" : "Commercial Markets"
 	},
 	"Complex of Ministries" : {
-		"ar" : "مواقع مجمع الوزارات",
+		"ar_AE" : "مواقع مجمع الوزارات",
 		"en" : "Complex of Ministries"
 	},
 	"Expropriate Real Estate" : {
-		"ar" : "العقارات المستملكة",
+		"ar_AE" : "العقارات المستملكة",
 		"en" : "Expropriate Real Estate"
 	},
 	"Interior Market" : {
-		"ar" : "السوق الداخلي",
+		"ar_AE" : "السوق الداخلي",
 		"en" : "Interior Market"
 	},
 	"Workshops and shops of the new city of Khiran" : {
-		"ar" : "ورش ومحلات مدينة الخيران",
+		"ar_AE" : "ورش ومحلات مدينة الخيران",
 		"en" : "Workshops and shops of the new city of Khiran"
 	},
 }
@@ -244,6 +245,7 @@ function builRecordlist(arr) {
 		objData.expectedContractEndDate = arr[i]["expectedContractEndDate"];
 		objData.totalRentingFees = arr[i]["totalRentingFees"];
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
+		objData.feesPerActivity = arr[i]["feesPerActivity"];
 
 		arrayOfData[i] = objData;
 
@@ -287,6 +289,7 @@ function recordClick(obj) {
 				selectedRow.expectedContractEndDate = arrayOfData[data].expectedContractEndDate;
 				selectedRow.totalRentingFees = arrayOfData[data].totalRentingFees;
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
+				selectedRow.feesPerActivity = arrayOfData[data].feesPerActivity;
 
 				break;
 			}
@@ -473,6 +476,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
 
 			winParent.focus();
 			
