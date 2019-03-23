@@ -19,125 +19,125 @@ var selectedRow = {
 var commercialActivityDDL = {
 	"select" : {
 		"ar_AE" : "--أختيار--",
-		"en" : "--select--"
+		"en_US" : "--select--"
 	},
 	"Alwafaraa WorkMarkets and Stores" : {
 		"ar_AE" : "ورش ومحلات الوفرة",
-		"en" : "Alwafaraa WorkMarkets and Stores"
+		"en_US" : "Alwafaraa WorkMarkets and Stores"
 	},
 	"Antennas" : {
 		"ar_AE" : "هوائيات ( أنتينات )",
-		"en" : "Antennas"
+		"en_US" : "Antennas"
 	},
 	"Banks/Telecommunications Companies" : {
 		"ar_AE" : "البنوك وشركات الاتصالات",
-		"en" : "Banks/Telecommunications Companies"
+		"en_US" : "Banks/Telecommunications Companies"
 	},
 	"Bird Market" : {
 		"ar_AE" : "محلات سوق الطيور بالري",
-		"en" : "Bird Market"
+		"en_US" : "Bird Market"
 	},
 	"Commercial Sites (Inside Capital)" : {
 		"ar_AE" : "(داخل العاصمة) مواقع تجارية",
-		"en" : "Commercial Sites (Inside Capital)"
+		"en_US" : "Commercial Sites (Inside Capital)"
 	},
 	"Driving Schools" : {
 		"ar_AE" : "مواقع تعليم قيادة السيارات",
-		"en" : "Driving Schools"
+		"en_US" : "Driving Schools"
 	},
 	"Expropriated Diwans" : {
 		"ar_AE" : "الدواوين المستملكة",
-		"en" : "Expropriated Diwans"
+		"en_US" : "Expropriated Diwans"
 	},
 	"Expropriated Houses" : {
 		"ar_AE" : "بيوت مستملكة مستغلة من قبل جمعيات النفع العام والمؤسسات الحكومية",
-		"en" : "Expropriated Houses"
+		"en_US" : "Expropriated Houses"
 	},
 	"Expropriated Real Estate-Different Utilizations" : {
 		"ar_AE" : "عقارات مستملكة ذات استغلالات مختلفة",
-		"en" : "Expropriated Real Estate-Different Utilizations"
+		"en_US" : "Expropriated Real Estate-Different Utilizations"
 	},
 	"Kiosks Used as Service Sites" : {
 		"ar_AE" : "أكشاك مستغلة كمواقع خدمية",
-		"en" : "Kiosks Used as Service Sites"
+		"en_US" : "Kiosks Used as Service Sites"
 	},
 	"Land Sites" : {
 		"ar_AE" : "مواقع قطع الأراضي",
-		"en" : "Land Sites"
+		"en_US" : "Land Sites"
 	},
 	"Large Markets" : {
 		"ar_AE" : "المحلات الكبيرة",
-		"en" : "Large Markets"
+		"en_US" : "Large Markets"
 	},
 	"Large workMarkets" : {
 		"ar_AE" : "الورش الكبيرة",
-		"en" : "Large workMarkets"
+		"en_US" : "Large workMarkets"
 	},
 	"Markets (Inside Capital)" : {
 		"ar_AE" : "محلات الأسواق (داخل العاصمة)",
-		"en" : "Markets (Inside Capital)"
+		"en_US" : "Markets (Inside Capital)"
 	},
 	"Markets inside Interior Market" : {
 		"ar_AE" : "المحلات بالسوق الداخلي",
-		"en" : "Markets inside Interior Market"
+		"en_US" : "Markets inside Interior Market"
 	},
 	"Plots (Remote Areas)" : {
 		"ar_AE" : "مواقع قطع أراضي (بمناطق نائية)",
-		"en" : "Plots (Remote Areas)"
+		"en_US" : "Plots (Remote Areas)"
 	},
 	"Restaurants/Kiosks(Printing/Accessories)" : {
 		"ar_AE" : "المطاعم وأكشاك (الطباعة/المكتبة)",
-		"en" : "Restaurants/Kiosks(Printing/Accessories)"
+		"en_US" : "Restaurants/Kiosks(Printing/Accessories)"
 	},
 	"Sale of Fodders" : {
 		"ar_AE" : "مواقع بيع الأعلاف",
-		"en" : "Sale of Fodders"
+		"en_US" : "Sale of Fodders"
 	},
 	"Signal Station" : {
 		"ar_AE" : "محطات التقوية",
-		"en" : "Signal Station"
+		"en_US" : "Signal Station"
 	},
 	"Sites include Stores" : {
 		"ar_AE" : "بسطات تضم مخازن",
-		"en" : "Sites include Stores"
+		"en_US" : "Sites include Stores"
 	},
 	"Small Markets" : {
 		"ar_AE" : "المحلات الصغيرة الجانبية",
-		"en" : "Small Markets"
+		"en_US" : "Small Markets"
 	},
 	"Small WorkMarkets" : {
 		"ar_AE" : "الورش الصغيرة الجانبية",
-		"en" : "Small WorkMarkets"
+		"en_US" : "Small WorkMarkets"
 	},
 	"Women Market Sites" : {
 		"ar_AE" : "مواقع بسطات سوق الحريم",
-		"en" : "Women Market Sites"
+		"en_US" : "Women Market Sites"
 	},
 }
 var utilizationDDLValues = {
 	"select" : {
 		"ar_AE" : "--أختيار--",
-		"en" : "--select--"
+		"en_US" : "--select--"
 	},
 	"Commercial Markets" : {
 		"ar_AE" : "الأسواق التجارية",
-		"en" : "Commercial Markets"
+		"en_US" : "Commercial Markets"
 	},
 	"Complex of Ministries" : {
 		"ar_AE" : "مواقع مجمع الوزارات",
-		"en" : "Complex of Ministries"
+		"en_US" : "Complex of Ministries"
 	},
 	"Expropriate Real Estate" : {
 		"ar_AE" : "العقارات المستملكة",
-		"en" : "Expropriate Real Estate"
+		"en_US" : "Expropriate Real Estate"
 	},
 	"Interior Market" : {
 		"ar_AE" : "السوق الداخلي",
-		"en" : "Interior Market"
+		"en_US" : "Interior Market"
 	},
 	"Workshops and shops of the new city of Khiran" : {
 		"ar_AE" : "ورش ومحلات مدينة الخيران",
-		"en" : "Workshops and shops of the new city of Khiran"
+		"en_US" : "Workshops and shops of the new city of Khiran"
 	},
 }
 
