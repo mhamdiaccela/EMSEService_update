@@ -15,7 +15,8 @@ var selectedRow = {
 	surfaceArea : "",
 	allocationEntity : "",
 	blockNumber : "",
-	contractApplicationType : ""
+	contractApplicationType : "",
+	address : ""
 
 };
 
@@ -110,15 +111,16 @@ function builRecordlist(arr) {
 		objData.allocationEntity = arr[i]["allocationEntity"];
 		objData.blockNumber = arr[i]["blockNumber"];
 		objData.contractApplicationType = arr[i]["contractApplicationType"];
-
+		arr[i]["address"] = decode64(arr[i]["address"]);
+		objData.address = arr[i]["address"];
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
 		htmlOutput += '<td>' + arr[i]["itemId"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["commericialName"] + '</td>';
-		htmlOutput += '<td>' +arr[i]["planNumber"] + '</td>';
-		htmlOutput += '<td>' +arr[i]["blockNumber"] + '</td>';
-		htmlOutput += '<td>' +arr[i]["plotID"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["planNumber"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["blockNumber"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["plotID"] + '</td>';
 		htmlOutput += '</tr>';
 
 	}
@@ -159,6 +161,7 @@ function recordClick(obj) {
 				selectedRow.allocationEntity = arrayOfData[data].allocationEntity;
 				selectedRow.blockNumber = arrayOfData[data].blockNumber;
 				selectedRow.contractApplicationType = arrayOfData[data].contractApplicationType;
+				selectedRow.address = arrayOfData[data].address;
 				break;
 			}
 
@@ -296,6 +299,18 @@ function selectPLCA() {
 			winParent.focus();
 			window.close();
 			// 
+
+		} else if (globalVars.recordType == "APCO") {
+
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_allocationEntity").value = convertHTMLEncodedToText(selectedRow.allocationEntity);
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_plotID").value = selectedRow.plotID;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_address").value = selectedRow.address;
+			winParent.focus();
+			window.close();
 
 		}
 

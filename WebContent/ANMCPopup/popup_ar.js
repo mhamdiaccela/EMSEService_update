@@ -12,7 +12,8 @@ var selectedRow = {
 	expectedContractEndDate : "",
 	totalRentingFees : "",
 	annualRentingFees : "",
-	feesPerActivity: ""
+	feesPerActivity: "",
+	rentingCalculationMethod:""
 };
 
 var commercialActivityDDL = {
@@ -246,6 +247,7 @@ function builRecordlist(arr) {
 		objData.totalRentingFees = arr[i]["totalRentingFees"];
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
 		objData.feesPerActivity = arr[i]["feesPerActivity"];
+		objData.rentingCalculationMethod = arr[i]["rentingCalculationMethod"];
 
 		arrayOfData[i] = objData;
 
@@ -290,6 +292,7 @@ function recordClick(obj) {
 				selectedRow.totalRentingFees = arrayOfData[data].totalRentingFees;
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
 				selectedRow.feesPerActivity = arrayOfData[data].feesPerActivity;
+				selectedRow.rentingCalculationMethod = arrayOfData[data].rentingCalculationMethod;
 				break;
 			}
 
@@ -426,7 +429,8 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
-
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_rentingCalculationMethod").value = selectedRow.rentingCalculationMethod;
 			winParent.focus();
 			 
 			window.close();

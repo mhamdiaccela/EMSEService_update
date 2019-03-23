@@ -12,7 +12,8 @@ var selectedRow = {
 	expectedContractEndDate : "",
 	totalRentingFees : "",
 	annualRentingFees : "",
-	feesPerActivity: ""
+	feesPerActivity : "",
+	rentingCalculationMethod : ""
 };
 
 var commercialActivityDDL = {
@@ -140,7 +141,7 @@ var utilizationDDLValues = {
 	},
 }
 
-function initPopup(){
+function initPopup() {
 	loadDDLValues();
 }
 
@@ -246,6 +247,7 @@ function builRecordlist(arr) {
 		objData.totalRentingFees = arr[i]["totalRentingFees"];
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
 		objData.feesPerActivity = arr[i]["feesPerActivity"];
+		objData.rentingCalculationMethod = arr[i]["rentingCalculationMethod"];
 
 		arrayOfData[i] = objData;
 
@@ -290,6 +292,7 @@ function recordClick(obj) {
 				selectedRow.totalRentingFees = arrayOfData[data].totalRentingFees;
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
 				selectedRow.feesPerActivity = arrayOfData[data].feesPerActivity;
+				selectedRow.rentingCalculationMethod = arrayOfData[data].rentingCalculationMethod;
 
 				break;
 			}
@@ -367,7 +370,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.area;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "DMCT") {
 
@@ -379,14 +382,14 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "MIRE") {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "MMCT1") {
 
@@ -398,7 +401,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_FIRSTMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "MMCT2") {
 
@@ -410,7 +413,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_SECONDMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "RMCT") {
 
@@ -427,12 +430,13 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_rentingCalculationMethod").value = selectedRow.rentingCalculationMethod;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "TMCT") {
-
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketNumber").value = selectedRow.marketNumber;
@@ -442,7 +446,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "MCCT") {
 
@@ -459,7 +463,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
 
 			winParent.focus();
-			
+
 			window.close();
 		} else if (globalVars.recordType == "TICT") {
 
@@ -479,7 +483,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
 
 			winParent.focus();
-			
+
 			window.close();
 		}
 
@@ -490,7 +494,7 @@ function selectANMC() {
 
 function closeWindow() {
 	window.close();
-	
+
 }
 
 function resetRecordSearch() {
