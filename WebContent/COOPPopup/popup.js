@@ -2,7 +2,10 @@ var selectedRow = {
 	coopName : "",
 	coopNumber : "",
 	surfaceArea : "",
-	address : ""
+	address : "",
+	numberOfDirectInvestment : "",
+	numberOfIndirectInvestment : "",
+	numberOfVacantSites : ""
 }
 
 function searchRecordRequest(coopName, coopNumber, page, limit) {
@@ -81,6 +84,9 @@ function builRecordlist(arr) {
 		objData.coopNumber = arr[i]["coopNumber"];
 		objData.coopName = arr[i]["coopName"];
 		objData.surfaceArea = arr[i]["surfaceArea"];
+		objData.numberOfDirectInvestment = arr[i]["numberOfDirectInvestment"];
+		objData.numberOfIndirectInvestment = arr[i]["numberOfIndirectInvestment"];
+		objData.numberOfVacantSites = arr[i]["numberOfVacantSites"];
 		arr[i]["address"] = decode64(arr[i]["address"]);
 		objData.address = arr[i]["address"];
 		arrayOfData[i] = objData;
@@ -115,6 +121,9 @@ function recordClick(obj) {
 				selectedRow.coopNumber = arrayOfData[data].coopNumber;
 				selectedRow.surfaceArea = arrayOfData[data].surfaceArea;
 				selectedRow.address = arrayOfData[data].address;
+				selectedRow.numberOfDirectInvestment = arrayOfData[data].numberOfDirectInvestment;
+				selectedRow.numberOfIndirectInvestment = arrayOfData[data].numberOfIndirectInvestment;
+				selectedRow.numberOfVacantSites = arrayOfData[data].numberOfVacantSites;
 				break;
 			}
 
@@ -183,7 +192,7 @@ function selectCOOP() {
 			alert("Please select a COOP");
 			return;
 		}
-		if (globalVars.recordType == "COCT") {
+		if (globalVars.recordType == "COCR") {
 			winParent = window.opener;
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
@@ -191,6 +200,18 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = selectedRow.coopNumber;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = selectedRow.address;
+
+			winParent.focus();
+			window.close();
+		} else if (globalVars.recordType == "COCT") {
+			winParent = window.opener;
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_previousContractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_numberOfDirectInvestment").value = convertHTMLEncodedToText(selectedRow.numberOfDirectInvestment);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_numberOfIndirectInvestment").value = convertHTMLEncodedToText(selectedRow.numberOfIndirectInvestment);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_numberOfVacantSites").value = convertHTMLEncodedToText(selectedRow.numberOfVacantSites);
 
 			winParent.focus();
 			window.close();
