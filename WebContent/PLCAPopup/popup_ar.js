@@ -232,10 +232,10 @@ function selectPLCA() {
 		if (globalVars.recordType == "CHPO") {
 
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
-			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_annualRentingFees").value = convertHTMLEncodedToText(selectedRow.annualRentingFees);
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_plotID").value = selectedRow.plotID;
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
-			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_totalRentingFees").value = convertHTMLEncodedToText(selectedRow.totalRentingFees);
 			winParent.focus();
 			window.close();
 
