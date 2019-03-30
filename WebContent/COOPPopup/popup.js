@@ -215,6 +215,24 @@ function selectCOOP() {
 
 			winParent.focus();
 			window.close();
+		}else if (globalVars.recordType == "COIC") {
+			winParent = window.opener;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address);
+			winParent.focus();
+			window.close();
+		}else if (globalVars.recordType == "CORI") {
+			winParent = window.opener;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address);
+			winParent.focus();
+			window.close();
 		}
 
 	} catch (error) {
