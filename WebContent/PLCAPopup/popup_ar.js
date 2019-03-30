@@ -257,6 +257,7 @@ function selectPLCA() {
 
 		} else if (globalVars.recordType == "APPO") {
 			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_plotID").value = convertHTMLEncodedToText(selectedRow.plotID);
 			winParent.focus();
 			window.close();
 
