@@ -123,8 +123,8 @@ function builRecordlist(arr) {
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
 		htmlOutput += '<td>' + arr[i]["itemId"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["utilization"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["activitytype"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["utilization_ar"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["activitytype_ar"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["planNumber"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["blockNumber"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["agriculturePlotID"] + '</td>';
