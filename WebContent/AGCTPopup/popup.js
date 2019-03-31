@@ -349,8 +349,11 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#coopName").val("");
-	$("#coopNumber").val("");
+	$("#currentContractLicenseNumber").val("");
+	$("#planNumber").val("");
+	$("#agriculturePlotID").val("");
+	$("#caseFileBarcode").val("");
+	$("#blockNumber").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
 	globalVars.pageNumber = 1;

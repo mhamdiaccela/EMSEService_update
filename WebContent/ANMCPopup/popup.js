@@ -498,8 +498,9 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#coopName").val("");
-	$("#coopNumber").val("");
+	$("#utilization").val("");
+	$("#commercialActivity").val("");
+	$("#marketNumber").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
 	globalVars.pageNumber = 1;

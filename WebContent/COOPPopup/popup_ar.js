@@ -246,3 +246,13 @@ function selectCOOP() {
 function closeWindow() {
 	window.close();
 }
+
+function resetRecordSearch() {
+	$("#coopName").val("");
+	$("#coopNumber").val("");
+	$('#searchResultContainer').css('display', 'none');
+	$('#noFirsLabel').css('display', 'none');
+	globalVars.pageNumber = 1;
+	globalVars.selectedConsignee = "";
+	globalVars.selectedConsigneeEnglishName = "";
+}

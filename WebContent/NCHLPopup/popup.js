@@ -266,8 +266,9 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#coopName").val("");
-	$("#coopNumber").val("");
+	$("#licenseNumber").val("");
+	$("#chaletID").val("");
+	$("#IsResort").prop( "checked", false );
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
 	globalVars.pageNumber = 1;

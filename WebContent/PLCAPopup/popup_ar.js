@@ -316,8 +316,11 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#coopName").val("");
-	$("#coopNumber").val("");
+	$("#ALTID").val("");
+	$("#planNumber").val("");
+	$("#blockNumber").val("");
+	$("#plotID").val("");
+	$("#commericialName").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
 	globalVars.pageNumber = 1;
