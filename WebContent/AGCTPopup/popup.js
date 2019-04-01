@@ -290,11 +290,12 @@ function selectAGCT() {
 			window.close();
 			
 		} else if (globalVars.recordType == "ACAR") {
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractLicenseNumber").value = globalVars.selectedConsignee;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_utilization").value = selectedRow.utilization;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_activityType").value = selectedRow.activitytype;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfacearea;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractType").value = selectedRow.contractType;
 
 			winParent.focus();
 			window.close();
