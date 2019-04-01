@@ -112,7 +112,7 @@ function builRecordlist(arr) {
 
 		objData.mortgageEndDate = arr[i]["mortgageEndDate"];
 		objData.plotStatus = arr[i]["plotStatus"];
-		objData.contractType = arr[i]["contractType"];
+		objData.contractType = arr[i]["contractType_ar"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		
 		
@@ -320,10 +320,10 @@ function selectAGCT() {
 		} else if (globalVars.recordType == "ACAR") {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization_ar);
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype_ar);
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfacearea;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType_ar);
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
 
 			winParent.focus();
 			window.close();
