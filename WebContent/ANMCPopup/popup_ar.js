@@ -235,8 +235,8 @@ function builRecordlist(arr) {
 		objData.itemId = arr[i]["itemId"];
 		objData.marketNumber = arr[i]["marketNumber"];
 		objData.area = arr[i]["area"];
-		objData.commercialActivity = arr[i]["commercialActivity"];
-		objData.utilization = arr[i]["utilization"];
+		objData.commercialActivity = arr[i]["commercialActivity_ar"];
+		objData.utilization = arr[i]["utilization_ar"];
 		objData.marketName = arr[i]["marketName"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		objData.contractEndDate = arr[i]["contractEndDate"];
