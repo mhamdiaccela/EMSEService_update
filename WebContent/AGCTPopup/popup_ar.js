@@ -104,15 +104,15 @@ function builRecordlist(arr) {
 		objData.caseFileBarcode = arr[i]["caseFileBarcode"];
 		objData.Address1 = arr[i]["Address1"];
 		objData.surfacearea = arr[i]["surfacearea"];
-		objData.utilization = arr[i]["utilization_ar"];
+		objData.utilization = arr[i]["utilization"];
 		objData.ismortgaged = arr[i]["ismortgaged"];
-		objData.activitytype = arr[i]["activitytype_ar"];
+		objData.activitytype = arr[i]["activitytype"];
 		objData.agriculturePlotID = arr[i]["agriculturePlotID"];
 		objData.mortgageDate = arr[i]["mortgageDate"];
 
 		objData.mortgageEndDate = arr[i]["mortgageEndDate"];
 		objData.plotStatus = arr[i]["plotStatus"];
-		objData.contractType = arr[i]["contractType_ar"];
+		objData.contractType = arr[i]["contractType"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		
 		
