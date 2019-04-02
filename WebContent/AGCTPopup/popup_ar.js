@@ -244,11 +244,11 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
 			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
 			
-			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
-			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
-			
-			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
-			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+//			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+//			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+//			
+//			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+//			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
 
 			winParent.focus();
 			window.close();
