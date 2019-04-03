@@ -189,10 +189,10 @@ function selectBOTC() {
 		
 		if (globalVars.recordType == "BOTE") {
 
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_contractNumber").value = selectedRow.contractNumber;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_projectName").value = selectedRow.projectName;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_currentPhase").value = selectedRow.currentPhase;
-			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_description").value = selectedRow.description;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractNumber").value = selectedRow.contractNumber;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_projectName").value = selectedRow.projectName;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentPhase").value = selectedRow.currentPhase;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_description").value = selectedRow.description;
 
 			winParent.focus();
 
