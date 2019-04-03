@@ -78,7 +78,7 @@ function builRecordlist(arr) {
 
 		var objData = new Object();
 		objData.contractNumber = arr[i]["itemId"];
-		objData.projectName = arr[i]["projectName"];
+		objData.projectName = arr[i]["Project name"];
 
 		arrayOfData[i] = objData;
 
