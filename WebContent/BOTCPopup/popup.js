@@ -82,7 +82,7 @@ function builRecordlist(arr) {
 
 		arrayOfData[i] = objData;
 
-		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.licenseNumber + '"></input></td>';
+		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.contractNumber + '"></input></td>';
 		htmlOutput += '<td>' + objData.contractNumber + '</td>';
 		htmlOutput += '<td>' + objData.projectName + '</td>';
 		htmlOutput += '</tr>';
