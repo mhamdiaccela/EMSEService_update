@@ -1,20 +1,18 @@
 var selectedRow = {
 		contractNumber: "",
-		description: "",
-		projectName: "",
-		currentPhase: ""
+		projectName: ""
 }
 
-function searchRecordRequest(contractNumber, projectName, IsResort, page, limit) {
+function searchRecordRequest(contractNumber, projectName, page, limit) {
 
 	try {
 		showSearchLoading();
 
 		var returnValue = "";
 		var prosData = "{sessionId:'" + globalVars.userSessionId + "', serviceProviderCode:'MOFK', callerId:'" + globalVars.currentUserID
-			+ "', scriptName:'SEARCH_NCHL_RECORDS', parameters:[{Key:'contractNumber', Value:'" + contractNumber + "'}," + "{Key:'projectName', Value:'"
+			+ "', scriptName:'SEARCH_BOTC_RECORDS', parameters:[{Key:'contractNumber', Value:'" + contractNumber + "'}," + "{Key:'projectName', Value:'"
 			+ String(projectName) + "'},"
-			"{Key:'pageLimit', Value:'" + page + "," + limit + "'},"
+			+ "{Key:'pageLimit', Value:'" + page + "," + limit + "'},"
 			+ "{Key:'action', Value:'searchRecordRecords'}]}";
 		$.ajax({
 			url: globalVars.emseServiceUrl,
@@ -69,7 +67,7 @@ function builRecordlist(arr) {
 		$("#pageingDiv").css('display', 'none');
 	}
 
-	htmlOutput += '<tr><th></th><th>Contract number</th><th>Project name</th><th>Current Phase</th><th>Description</th>';
+	htmlOutput += '<tr><th></th><th>Contract number</th><th>Project name</th>';
 
 	for (var i = 0; i < arr.length; i++) {
 		if (i % 2 == 0) {
@@ -81,16 +79,12 @@ function builRecordlist(arr) {
 		var objData = new Object();
 		objData.contractNumber = arr[i]["itemId"];
 		objData.projectName = arr[i]["projectName"];
-		objData.currentPhase = arr[i]["currentPhase"];
-		objData.description = arr[i]["description"];
 
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.licenseNumber + '"></input></td>';
 		htmlOutput += '<td>' + objData.contractNumber + '</td>';
 		htmlOutput += '<td>' + objData.projectName + '</td>';
-		htmlOutput += '<td>' + objData.currentPhase + '</td>';
-		htmlOutput += '<td>' + objData.description + '</td>';
 		htmlOutput += '</tr>';
 
 	}
@@ -114,8 +108,6 @@ function recordClick(obj) {
 			if (obj.value == arrayOfData[data].licenseNumber) {
 				selectedRow.contractNumber = arrayOfData[data].contractNumber;
 				selectedRow.projectName = arrayOfData[data].projectName;
-				selectedRow.currentPhase = arrayOfData[data].currentPhase;
-				selectedRow.description = arrayOfData[data].description;
 				break;
 			}
 
@@ -173,7 +165,6 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	var resort = $("#IsResort").is(':checked') ? 'Yes' : 'No';
 	searchRecordRequest($("#contractNumber").val(), $("#projectName").val(),
 			pageNumber, globalVars.pageLimit);
 }
@@ -191,8 +182,6 @@ function selectBOTC() {
 
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractNumber").value = selectedRow.contractNumber;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_projectName").value = selectedRow.projectName;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentPhase").value = selectedRow.currentPhase;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_description").value = selectedRow.description;
 
 			winParent.focus();
 
@@ -209,9 +198,8 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#licenseNumber").val("");
-	$("#chaletID").val("");
-	$("#IsResort").prop( "checked", false );
+	$("#contractNumber").val("");
+	$("#projectName").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
 	globalVars.pageNumber = 1;
