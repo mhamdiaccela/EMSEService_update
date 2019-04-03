@@ -187,6 +187,16 @@ function selectBOTC() {
 
 			window.close();
 		}
+		
+		if (globalVars.recordType == "BOTG") {
+
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractNumber").value = selectedRow.contractNumber;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_projectName").value = selectedRow.projectName;
+
+			winParent.focus();
+
+			window.close();
+		}
 
 	} catch (error) {
 		alert(error.message);
