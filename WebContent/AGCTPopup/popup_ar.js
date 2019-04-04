@@ -279,6 +279,7 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
 
 			winParent.focus();
+			window.close();
 	
 		} else if (globalVars.recordType == "MAPC2") {
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_secondContractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
