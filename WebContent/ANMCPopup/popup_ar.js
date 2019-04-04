@@ -496,8 +496,7 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#utilization").val("");
-	$("#commercialActivity").val("");
+	loadDDLValues();
 	$("#marketNumber").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
