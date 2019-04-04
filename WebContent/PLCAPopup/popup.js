@@ -295,8 +295,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_plotID").value = selectedRow.plotID;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_blockNumber").value = selectedRow.blockNumber;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_isAllocationLetterAvailable").value = selectedRow.isAllocationLetterAvailable;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_planNumber").value = selectedRow.planNumber;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.focus();
 			window.close();
 			// 
