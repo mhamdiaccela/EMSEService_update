@@ -235,8 +235,8 @@ function builRecordlist(arr) {
 		objData.itemId = arr[i]["itemId"];
 		objData.marketNumber = arr[i]["marketNumber"];
 		objData.area = arr[i]["area"];
-		objData.commercialActivity = arr[i]["commercialActivity_ar"];
-		objData.utilization = arr[i]["utilization_ar"];
+		objData.commercialActivity = arr[i]["commercialActivity"];
+		objData.utilization = arr[i]["utilization"];
 		objData.marketName = arr[i]["marketName"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		objData.contractEndDate = arr[i]["contractEndDate"];
@@ -253,8 +253,8 @@ function builRecordlist(arr) {
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
 		htmlOutput += '<td>' + arr[i]["itemId"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["commercialActivity"] + '</td>';
-		htmlOutput += '<td>' + arr[i]["utilization"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["commercialActivity_ar"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["utilization_ar"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["area"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["marketNumber"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["marketName"] + '</td>';
@@ -496,8 +496,7 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#utilization").val("");
-	$("#commercialActivity").val("");
+	loadDDLValues();
 	$("#marketNumber").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
