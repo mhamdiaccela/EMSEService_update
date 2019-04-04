@@ -104,15 +104,15 @@ function builRecordlist(arr) {
 		objData.caseFileBarcode = arr[i]["caseFileBarcode"];
 		objData.Address1 = arr[i]["Address1"];
 		objData.surfacearea = arr[i]["surfacearea"];
-		objData.utilization = arr[i]["utilization_ar"];
+		objData.utilization = arr[i]["utilization"];
 		objData.ismortgaged = arr[i]["ismortgaged"];
-		objData.activitytype = arr[i]["activitytype_ar"];
+		objData.activitytype = arr[i]["activitytype"];
 		objData.agriculturePlotID = arr[i]["agriculturePlotID"];
 		objData.mortgageDate = arr[i]["mortgageDate"];
 
 		objData.mortgageEndDate = arr[i]["mortgageEndDate"];
 		objData.plotStatus = arr[i]["plotStatus"];
-		objData.contractType = arr[i]["contractType_ar"];
+		objData.contractType = arr[i]["contractType"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		
 		
@@ -234,7 +234,26 @@ function selectAGCT() {
 			alert("الرجاء أختيار عقد");
 			return;
 		}
-		if (globalVars.recordType == "AGCT") {
+		if (globalVars.recordType == "DAPC") {
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_currentContractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_surfaceArea").value = selectedRow.surfacearea;
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.Address1);
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
+			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
+			
+//			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+//			winParent.document.getElementById("app_spec_info_FIRSTCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+//			
+//			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+//			winParent.document.getElementById("app_spec_info_SECONDCONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+
+			winParent.focus();
+			window.close();
+			
+		}else if (globalVars.recordType == "AGCT") {
 
 			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_currentContractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
