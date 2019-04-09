@@ -218,7 +218,7 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	searchRecordRequest($("#planNumber").val(), $("#plotID").val(), $("#commericialName").val(), $("#blockNumber").val(), $("#ALTID").val(), pageNumber, globalVars.pageLimit);
+	searchRecordRequest($("#planNumber").val(), $("#plotID").val(), $("#commericialName").val(), $("#blockNumber").val(), '', pageNumber, globalVars.pageLimit);
 }
 
 function selectPLCA() {
@@ -316,7 +316,7 @@ function closeWindow() {
 }
 
 function resetRecordSearch() {
-	$("#ALTID").val("");
+	//$("#ALTID").val("");
 	$("#planNumber").val("");
 	$("#blockNumber").val("");
 	$("#plotID").val("");
