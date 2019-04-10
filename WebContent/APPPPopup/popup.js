@@ -185,7 +185,7 @@ function selectBOTC() {
 		
 		if (globalVars.recordType == "AREG") {
 
-			winParent.document.getElementById("app_spec_info_AUCTION DATA_Auction_ID").value = selectedRow.auctionId;
+			winParent.document.getElementById("app_spec_info_AUCTION_DATA_Auction_ID").value = selectedRow.auctionId;
 			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Plot_ID").value = selectedRow.parcelId;
 
 			winParent.focus();
