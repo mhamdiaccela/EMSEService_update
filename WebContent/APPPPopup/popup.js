@@ -172,8 +172,7 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	searchRecordRequest($("#contractNumber").val(), $("#projectName").val(),
-		pageNumber, globalVars.pageLimit);
+	searchRecordRequest($("#auctionId").val(), $("#parcelId").val(), pageNumber, globalVars.pageLimit);
 }
 
 function selectBOTC() {
