@@ -113,8 +113,8 @@ function recordClick(obj) {
 		globalVars.selectedConsignee = obj.value;
 		for (data in arrayOfData) {
 			if (obj.value == arrayOfData[data].contractNumber) {
-				selectedRow.contractNumber = arrayOfData[data].contractNumber;
-				selectedRow.projectName = arrayOfData[data].projectName;
+				selectedRow.auctionId = arrayOfData[data].auctionId;
+				selectedRow.parcelId = arrayOfData[data].parcelId;
 				break;
 			}
 
@@ -175,7 +175,7 @@ function searchRecord(pageNumber) {
 	searchRecordRequest($("#auctionId").val(), $("#parcelId").val(), pageNumber, globalVars.pageLimit);
 }
 
-function selectBOTC() {
+function selectAPPP() {
 	var winParent = window.opener;
 	try {
 		if (globalVars.selectedConsignee.length == 0) {
