@@ -112,7 +112,7 @@ function recordClick(obj) {
 
 		globalVars.selectedConsignee = obj.value;
 		for (data in arrayOfData) {
-			if (obj.value == arrayOfData[data].contractNumber) {
+			if (obj.value == arrayOfData[data].auctionId) {
 				selectedRow.auctionId = arrayOfData[data].auctionId;
 				selectedRow.parcelId = arrayOfData[data].parcelId;
 				break;
@@ -150,8 +150,8 @@ function depositChanged(obj) {
 
 function resetForm() {
 	$("#depositSelect").val("-1");
-	$("#contractNumber").val("");
-	$("#projectName").val("");
+	$("#auctionId").val("");
+	$("#parcelId").val("");
 	$("#firsRecord").css("display", "none");
 	$("#firsRecordLabel").css("display", "none");
 	$("#searchBtn").css("display", "none");
