@@ -1,6 +1,7 @@
 var selectedRow = {
 		auctionId: "",
-		parcelId: ""
+		parcelId: "",
+		areaName: "",
 }
 
 function updateWithdrawError(param) {
@@ -74,7 +75,7 @@ function builRecordlist(arr) {
 		$("#pageingDiv").css('display', 'none');
 	}
 
-	htmlOutput += '<tr><th></th><th>Auction ID</th><th>Plot ID</th>';
+	htmlOutput += '<tr><th></th><th>Auction ID</th><th>Plot ID</th><th>Area Name</th>';
 
 	for (var i = 0; i < arr.length; i++) {
 		if (i % 2 == 0) {
@@ -86,12 +87,14 @@ function builRecordlist(arr) {
 		var objData = new Object();
 		objData.auctionId = arr[i]["itemId"];
 		objData.parcelId = arr[i]["Parcel ID"];
+		objData.areaName = arr[i]["Area Name"];
 
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + objData.auctionId + '"></input></td>';
 		htmlOutput += '<td>' + objData.auctionId + '</td>';
 		htmlOutput += '<td>' + objData.parcelId + '</td>';
+		htmlOutput += '<td>' + objData.areaName + '</td>';
 		htmlOutput += '</tr>';
 
 	}
@@ -115,6 +118,7 @@ function recordClick(obj) {
 			if (obj.value == arrayOfData[data].auctionId) {
 				selectedRow.auctionId = arrayOfData[data].auctionId;
 				selectedRow.parcelId = arrayOfData[data].parcelId;
+				selectedRow.areaName = arrayOfData[data].areaName;
 				break;
 			}
 
@@ -187,7 +191,8 @@ function selectAPPP() {
 
 			winParent.document.getElementById("app_spec_info_AUCTION_DATA_Auction_ID").value = selectedRow.auctionId;
 			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Plot_ID").value = selectedRow.parcelId;
-
+			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Area_Name").value = convertHTMLEncodedToText(selectedRow.areaName);
+			
 			winParent.focus();
 
 			window.close();
