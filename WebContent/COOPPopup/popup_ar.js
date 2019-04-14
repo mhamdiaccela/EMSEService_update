@@ -236,6 +236,13 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address);
 			winParent.focus();
 			window.close();
+			
+		}else if (globalVars.recordType == "COHS") {
+			winParent = window.opener;
+			winParent.document.getElementById("app_spec_info_GENERAL_contractid").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_GENERAL_location").value = convertHTMLEncodedToText(selectedRow.address);
+			winParent.focus();
+			window.close();
 		}
 
 	} catch (error) {
