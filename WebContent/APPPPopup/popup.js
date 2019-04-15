@@ -191,7 +191,7 @@ function selectAPPP() {
 
 			winParent.document.getElementById("app_spec_info_AUCTION_DATA_Auction_ID").value = selectedRow.auctionId;
 			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Plot_ID").value = selectedRow.parcelId;
-			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Area_Name").value = convertHTMLEncodedToText(selectedRow.areaName);
+			winParent.document.getElementById("app_spec_info_REGISTRATION_APPLICANT_DATA_Area").value = convertHTMLEncodedToText(selectedRow.areaName);
 			
 			winParent.focus();
 
