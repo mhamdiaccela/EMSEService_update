@@ -263,6 +263,14 @@ function selectNCHL() {
 
 			window.close();
 		}
+		if (globalVars.recordType == "MABO") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
+			winParent.focus();
+
+			window.close();
+		}
 
 	} catch (error) {
 		alert(error.message);
