@@ -223,7 +223,7 @@ function selectNCHL() {
 			winParent.focus();
 
 			window.close();
-		}else if (globalVars.recordType == "TLTS") {
+		}else if (globalVars.recordType == "TLTS" || globalVars.recordType == "CTSL") {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
 	        winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 			winParent.focus();
