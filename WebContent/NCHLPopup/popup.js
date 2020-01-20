@@ -223,28 +223,35 @@ function selectNCHL() {
 			winParent.focus();
 
 			window.close();
-		}else if (globalVars.recordType == "TLTS" || globalVars.recordType == "CTSL") {
+		}else if (globalVars.recordType == "ASCL") {
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
 	        winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 			winParent.focus();
-			var elementObj = winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber");
-			if ("createEvent" in document) {
-				var evt = document.createEvent("HTMLEvents");
-				evt.initEvent("change", false, true);
-				elementObj.dispatchEvent(evt);
-			}
-			else{
-				elementObj.fireEvent("onchange");
-			}
+
+			window.close();
+		}
+		else if (globalVars.recordType == "TCRC") {
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_ChaletNumber").value = convertHTMLEncodedToText(selectedRow.chaletID);
+	        winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.focus();
+
+			window.close();
+		}else if (globalVars.recordType == "TTLI") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+	        winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.focus();
+
+			window.close();
+		}else if (globalVars.recordType == "MABO") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+	        winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.focus();
 
 			window.close();
 		}else{
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
-			var licenseNumberEle = winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber");
-			if(!licenseNumberEle){
-				licenseNumberEle = winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licensenumber")
-			}
-			licenseNumberEle.value = selectedRow.licenseNumber;
+			winParent.document.getElementById("app_spec_info_LICENSEDETAILS_licenseNumber").value = selectedRow.licenseNumber;
+
 			winParent.focus();
 
 			window.close();

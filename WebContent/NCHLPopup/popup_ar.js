@@ -285,6 +285,26 @@ function selectNCHL() {
 
 			window.close();
 		}
+		
+		if (globalVars.recordType == "CIPA") {
+			
+			winParent.document.getElementById("app_spec_info_LICENSEDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_LICENSEDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+
+			winParent.focus();
+
+			window.close();
+		}
+		
+		if (globalVars.recordType == "TCRC") {
+			
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_ChaletNumber").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById(app_spec_info_CONTRACTDETAILS_contractNumber).value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+
+			winParent.focus();
+
+			window.close();
+		}
 
 
 	} catch (error) {
