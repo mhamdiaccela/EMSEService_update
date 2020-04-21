@@ -464,14 +464,14 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = selectedRow.commercialActivity;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_MarketName").value = selectedRow.marketName;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = selectedRow.utilization;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_feesPerActivity").value = selectedRow.feesPerActivity;
 
 			winParent.focus();
 
