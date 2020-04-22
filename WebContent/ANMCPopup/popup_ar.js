@@ -497,7 +497,13 @@ function selectANMC() {
 			winParent.focus();
 			 
 			window.close();
-		} 
+		}  else if (globalVars.recordType == "MISC") {
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			
+			winParent.focus();
+			 
+			window.close()
+		}
 
 	} catch (error) {
 		alert(error.message);
