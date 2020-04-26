@@ -452,8 +452,8 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
-			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilization").value = selectedRow.utilization;
-			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_commercialActivity").value = selectedRow.commercialActivity;
+			//winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilization").value = selectedRow.utilization;
+			//winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_commercialActivity").value = selectedRow.commercialActivity;
 
 			winParent.focus();
 
