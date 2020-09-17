@@ -443,16 +443,9 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_Area").value = selectedRow.area;
-			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
-			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
-			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
-			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
-			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
-			//winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
-			//winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
 
 			winParent.focus();
 			 
