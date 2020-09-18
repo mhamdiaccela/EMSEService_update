@@ -443,10 +443,14 @@ function selectANMC() {
 
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
-			winParent.document.getElementById("app_spec_info_MARKETDETAILS_Area").value = selectedRow.area;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
+			//winParent.document.getElementById("app_spec_info_MARKETDETAILS_Area").value = selectedRow.area;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
+			
+			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilizationDetails").value = selectedRow.utilizationDetails;
+			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = selectedRow.commercialActivity;
+			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
 
