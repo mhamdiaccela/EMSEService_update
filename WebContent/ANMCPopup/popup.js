@@ -13,7 +13,8 @@ var selectedRow = {
 	totalRentingFees : "",
 	annualRentingFees : "",
 	feesPerActivity : "",
-	rentingCalculationMethod : ""
+	rentingCalculationMethod : "",
+	utilizationDetails : ""
 };
 
 var commercialActivityDDL = {
@@ -248,6 +249,7 @@ function builRecordlist(arr) {
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
 		objData.feesPerActivity = arr[i]["feesPerActivity"];
 		objData.rentingCalculationMethod = arr[i]["rentingCalculationMethod"];
+		objData.utilizationDetails = arr[i]["utilizationDetails"];
 
 		arrayOfData[i] = objData;
 
@@ -293,6 +295,7 @@ function recordClick(obj) {
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
 				selectedRow.feesPerActivity = arrayOfData[data].feesPerActivity;
 				selectedRow.rentingCalculationMethod = arrayOfData[data].rentingCalculationMethod;
+				selectedRow.utilizationDetails  = arrayOfData[data].utilizationDetails;
 
 				break;
 			}

@@ -13,7 +13,8 @@ var selectedRow = {
 	totalRentingFees : "",
 	annualRentingFees : "",
 	feesPerActivity: "",
-	rentingCalculationMethod:""
+	rentingCalculationMethod:"",
+	utilizationDetails : ""
 };
 
 var commercialActivityDDL = {
@@ -248,6 +249,7 @@ function builRecordlist(arr) {
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
 		objData.feesPerActivity = arr[i]["feesPerActivity"];
 		objData.rentingCalculationMethod = arr[i]["rentingCalculationMethod"];
+		objData.utilizationDetails = arr[i]["utilizationDetails"];
 
 		arrayOfData[i] = objData;
 
@@ -293,6 +295,7 @@ function recordClick(obj) {
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
 				selectedRow.feesPerActivity = arrayOfData[data].feesPerActivity;
 				selectedRow.rentingCalculationMethod = arrayOfData[data].rentingCalculationMethod;
+				selectedRow.utilizationDetails  = arrayOfData[data].utilizationDetails;
 				break;
 			}
 
@@ -446,7 +449,6 @@ function selectANMC() {
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
-			
 			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilizationDetails").value = convertHTMLEncodedToText(selectedRow.utilizationDetails);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
