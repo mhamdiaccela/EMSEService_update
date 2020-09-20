@@ -223,7 +223,7 @@ function builRecordlist(arr) {
 	}
 
 	htmlOutput += '<tr><th></th><th>رقم العقد</th><th>تصنيف الاستغلال</th><th>موقع السوق</th><th>المساحة</th>';
-	htmlOutput += '<th>رقم السوق</th> <th>اسم المستغل</th></tr>';
+	htmlOutput += '<th>رقم العين</th> <th>اسم المستغل</th></tr>';
 
 	for (var i = 0; i < arr.length; i++) {
 		if (i % 2 == 0) {
