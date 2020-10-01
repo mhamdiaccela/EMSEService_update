@@ -237,6 +237,12 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_entityRequestingAllocation").value = selectedRow.allocationEntity;
 			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_totalRentingFees").value = convertHTMLEncodedToText(selectedRow.totalRentingFees);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = convertHTMLEncodedToText(selectedRow.contractStartDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = convertHTMLEncodedToText(selectedRow.contractDurationYears);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = convertHTMLEncodedToText(selectedRow.contractEndDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = convertHTMLEncodedToText(selectedRow.expectedContractEndDate);
+			winParent.document.getElementById("app_spec_info_CURRENTCONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address);
 			winParent.focus();
 			window.close();
 
@@ -277,6 +283,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_plotID").value = selectedRow.plotID;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address);
 			winParent.focus();
 			window.close();
 

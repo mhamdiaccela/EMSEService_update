@@ -7,6 +7,7 @@ var selectedRow = {
 	signDate : "",
 	issueDate : "",
 	totalRentingFees : "",
+	annualRentingFees : "",
 	allocationCorrespondenceNumber : "",
 	allocationCorrespondenceDate : "",
 	activitytype : "",
@@ -109,7 +110,7 @@ function builRecordlist(arr) {
 		
 		objData.surfacearea = arr[i]["surfacearea"];
 		objData.utilization = arr[i]["utilization"];
-		objData.ismortgaged = arr[i]["ismortgaged"];
+		objData.ismortgaged = arr[i]["isMortgaged?"];
 		objData.activitytype = arr[i]["activitytype"];
 		objData.agriculturePlotID = arr[i]["agriculturePlotID"];
 		objData.mortgageDate = arr[i]["mortgageDate"];
@@ -118,6 +119,15 @@ function builRecordlist(arr) {
 		objData.plotStatus = arr[i]["plotStatus"];
 		objData.contractType = arr[i]["contractType"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
+		
+		objData.contractEndDate = arr[i]["contractEndDate"];
+		objData.contractStartDate = arr[i]["contractStartDate"];
+		objData.contractType = arr[i]["contractType"];
+		objData.expectedContractEndDate = arr[i]["expectedContractEndDate"];
+		objData.annualRentingFees = arr[i]["annualRentingFees"];
+		objData.totalRentingFees = arr[i]["totalRentingFees"];
+		objData.planNumber  = arr[i]["planNumber"];
+		objData.blockNumber = arr[i]["blockNumber"];
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
@@ -163,6 +173,13 @@ function recordClick(obj) {
 				selectedRow.plotStatus = arrayOfData[data].plotStatus;
 				selectedRow.contractType = arrayOfData[data].contractType;
 				selectedRow.contractDurationYears = arrayOfData[data].contractDurationYears;
+				selectedRow.contractStartDate = arrayOfData[data].contractStartDate;
+				selectedRow.expectedContractEndDate = arrayOfData[data].expectedContractEndDate;
+				selectedRow.contractEndDate = arrayOfData[data].contractEndDate;
+				selectedRow.totalRentingFees = arrayOfData[data].totalRentingFees;
+				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
+				selectedRow.planNumber = arrayOfData[data].planNumber;
+				selectedRow.blockNumber = arrayOfData[data].blockNumber;
 				break;
 			}
 
@@ -235,14 +252,16 @@ function selectAGCT() {
 		}
 		if (globalVars.recordType == "AGCT") {
 
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_currentContractNumber").value = globalVars.selectedConsignee;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_utilization").value = selectedRow.utilization;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_activityType").value = selectedRow.activitytype;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_surfaceArea").value = selectedRow.surfacearea;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_address").value = selectedRow.Address1;
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = selectedRow.planNumber;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
+			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_utilization").value = selectedRow.utilization;
+			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_activityType").value = selectedRow.activitytype;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = selectedRow.Address1;
+			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
 
 			winParent.focus();
 			
@@ -254,8 +273,8 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_activityType").value = selectedRow.activitytype;
 			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_surfaceArea").value = selectedRow.surfacearea;
 			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_address").value = selectedRow.Address1;
-			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
-			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
+			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_FIRSTPLOTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
 
 			winParent.focus();
 			window.close();
@@ -267,8 +286,8 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_activityType").value = selectedRow.activitytype;
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_surfaceArea").value = selectedRow.surfacearea;
 			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_address").value = selectedRow.Address1;
-			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
-			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
+			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_SECONDPLOTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
 
 			winParent.focus();
 			window.close();
@@ -297,6 +316,18 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfacearea;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractType").value = selectedRow.contractType;
 
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = selectedRow.contractStartDate;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = selectedRow.expectedContractEndDate;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = selectedRow.contractEndDate;
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			//winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_mortgageDate").value = selectedRow.mortgageDate;
+			//winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_mortgageEndDate").value = selectedRow.mortgageEndDate;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			
 			winParent.focus();
 			window.close();
 			
@@ -309,20 +340,38 @@ function selectAGCT() {
 			winParent.focus();
 			window.close();
 			
-		} else if (globalVars.recordType == "AAPC") {
+		} else if (globalVars.recordType == "TAPC") {
+
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
+
+			winParent.focus();
+			window.close();
+
+		}else if (globalVars.recordType == "AAPC") {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = globalVars.selectedConsignee;
 			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_utilization").value = selectedRow.utilization;
 			winParent.document.getElementById("app_spec_info_UTILIZATIONDETAILS_activityType").value = selectedRow.activitytype;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r1").value = selectedRow.ismortgaged == 'CHECKED' ? 'Yes' : "";
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r2").value = selectedRow.ismortgaged == 'CHECKED' ? '' : "Yes";
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageDate").value = selectedRow.mortgageDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageEndDate").value = selectedRow.mortgageEndDate;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageDate").value = selectedRow.mortgageDate;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageEndDate").value = selectedRow.mortgageEndDate;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_plotStatus").value = selectedRow.plotStatus;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = convertHTMLEncodedToText(selectedRow.agriculturePlotID);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = convertHTMLEncodedToText(selectedRow.contractStartDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = convertHTMLEncodedToText(selectedRow.expectedContractEndDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = convertHTMLEncodedToText(selectedRow.contractEndDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
 
 			winParent.focus();
 			window.close();
@@ -334,6 +383,18 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_activityType").value = selectedRow.activitytype;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfacearea;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_address").value = selectedRow.Address1;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = convertHTMLEncodedToText(selectedRow.contractStartDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = convertHTMLEncodedToText(selectedRow.expectedContractEndDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = convertHTMLEncodedToText(selectedRow.contractEndDate);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_totalRentingFees").value = selectedRow.totalRentingFees;
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_contractType").value = convertHTMLEncodedToText(selectedRow.contractType);
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			//winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_mortgageDate").value = convertHTMLEncodedToText(selectedRow.mortgageDate);
+			//winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_mortgageEndDate").value = convertHTMLEncodedToText(selectedRow.mortgageEndDate);
+			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
 
 			winParent.focus();
 			window.close();
