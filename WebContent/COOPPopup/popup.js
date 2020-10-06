@@ -5,7 +5,9 @@ var selectedRow = {
 	address : "",
 	numberOfDirectInvestment : "",
 	numberOfIndirectInvestment : "",
-	numberOfVacantSites : ""
+	numberOfVacantSites : "",
+	hasLastRent: "",
+	hasViolations: ""
 }
 
 function searchRecordRequest(coopName, coopNumber, page, limit) {
@@ -87,6 +89,8 @@ function builRecordlist(arr) {
 		objData.numberOfDirectInvestment = arr[i]["numberOfDirectInvestment"];
 		objData.numberOfIndirectInvestment = arr[i]["numberOfIndirectInvestment"];
 		objData.numberOfVacantSites = arr[i]["numberOfVacantSites"];
+		objData.hasLastRent = arr[i]["hasLastRent"];
+		objData.hasViolations = arr[i]["hasViolations"];
 		arr[i]["address"] = decode64(arr[i]["address"]);
 		objData.address = arr[i]["address"];
 		arrayOfData[i] = objData;
@@ -124,6 +128,8 @@ function recordClick(obj) {
 				selectedRow.numberOfDirectInvestment = arrayOfData[data].numberOfDirectInvestment;
 				selectedRow.numberOfIndirectInvestment = arrayOfData[data].numberOfIndirectInvestment;
 				selectedRow.numberOfVacantSites = arrayOfData[data].numberOfVacantSites;
+				selectedRow.hasLastRent = arrayOfData[data].hasLastRent;
+				selectedRow.hasViolations = arrayOfData[data].hasViolations;
 				break;
 			}
 
@@ -220,6 +226,22 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			
+			if(selectedRow.hasLastRent){
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = false;
+			}else{
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = true;
+			}
+			
+			if(selectedRow.hasViolations == 'Y'){
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = false;
+			}else{
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = true;
+			}
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address); 
 			winParent.focus();

@@ -5,7 +5,9 @@ var selectedRow = {
 	address : "",
 	numberOfDirectInvestment : "",
 	numberOfIndirectInvestment : "",
-	numberOfVacantSites : ""
+	numberOfVacantSites : "",
+	hasLastRent: "",
+	hasViolations: ""
 }
 
 function searchRecordRequest(coopName, coopNumber, page, limit) {
@@ -88,7 +90,8 @@ function builRecordlist(arr) {
 		objData.numberOfDirectInvestment = arr[i]["numberOfDirectInvestment"];
 		objData.numberOfIndirectInvestment = arr[i]["numberOfIndirectInvestment"];
 		objData.numberOfVacantSites = arr[i]["numberOfVacantSites"];
-
+		objData.hasLastRent = arr[i]["hasLastRent"];
+		objData.hasViolations = arr[i]["hasViolations"];
 	
 			
 		arr[i]["address"] = decode64(arr[i]["address"]);
@@ -128,6 +131,8 @@ function recordClick(obj) {
 				selectedRow.numberOfDirectInvestment = arrayOfData[data].numberOfDirectInvestment;
 				selectedRow.numberOfIndirectInvestment = arrayOfData[data].numberOfIndirectInvestment;
 				selectedRow.numberOfVacantSites = arrayOfData[data].numberOfVacantSites;
+				selectedRow.hasLastRent = arrayOfData[data].hasLastRent;
+				selectedRow.hasViolations = arrayOfData[data].hasViolations;
 								
 				break;
 			}
