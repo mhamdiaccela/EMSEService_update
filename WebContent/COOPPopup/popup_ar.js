@@ -30,11 +30,12 @@ function searchRecordRequest(coopName, coopNumber, page, limit) {
 				hideSearchLoading();
 			},
 			success : function(data) {
-
+//				alert("SUCCESS : data json : " + JSON.stringify(data));
 				var responseHTML = data.d;
+//				alert("responseHTML: " + responseHTML);
 				if (responseHTML && responseHTML.output && responseHTML.output.wholeResults) {
 					var arr = responseHTML.output.wholeResults;
-
+					
 					var outObj;
 					for (var i = 0; i < arr.length; i++) {
 						if (arr[i].key == "result") {
@@ -48,10 +49,14 @@ function searchRecordRequest(coopName, coopNumber, page, limit) {
 						buildRecordPageList(outObj.resultCount);
 						$("#page-" + globalVars.pageNumber).css("color", "red");
 						$("#page-" + globalVars.pageNumber).css("text-decoration", "underline");
+					}else{
+//						alert("NO DATA");
 					}
+				}else{
+					alert("NO DATA Found");
 				}
 				hideSearchLoading();
-			}
+			}     
 		});
 		return returnValue;
 	} catch (e) {
@@ -127,7 +132,7 @@ function recordClick(obj) {
 				selectedRow.coopName = arrayOfData[data].coopName;
 				selectedRow.coopNumber = arrayOfData[data].coopNumber;
 				selectedRow.surfaceArea = arrayOfData[data].surfaceArea;
-				selectedRow.address = arrayOfData[data].address;
+				selectedRow.address = arrayOfData[data].address == null || arrayOfData[data].address == undefined ? "" : arrayOfData[data].address;
 				selectedRow.numberOfDirectInvestment = arrayOfData[data].numberOfDirectInvestment;
 				selectedRow.numberOfIndirectInvestment = arrayOfData[data].numberOfIndirectInvestment;
 				selectedRow.numberOfVacantSites = arrayOfData[data].numberOfVacantSites;

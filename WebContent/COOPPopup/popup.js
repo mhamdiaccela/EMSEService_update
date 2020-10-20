@@ -124,7 +124,7 @@ function recordClick(obj) {
 				selectedRow.coopName = arrayOfData[data].coopName;
 				selectedRow.coopNumber = arrayOfData[data].coopNumber;
 				selectedRow.surfaceArea = arrayOfData[data].surfaceArea;
-				selectedRow.address = arrayOfData[data].address;
+				selectedRow.address = arrayOfData[data].address == null || arrayOfData[data].address == undefined ? "" : arrayOfData[data].address;
 				selectedRow.numberOfDirectInvestment = arrayOfData[data].numberOfDirectInvestment;
 				selectedRow.numberOfIndirectInvestment = arrayOfData[data].numberOfIndirectInvestment;
 				selectedRow.numberOfVacantSites = arrayOfData[data].numberOfVacantSites;
