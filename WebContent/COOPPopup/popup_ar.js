@@ -233,6 +233,54 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			
+			if(selectedRow.hasLastRent){
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = false;
+				
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").checked = false;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").checked = true;
+//				
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = false;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = true;
+//				
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").checked = false;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").checked = true;
+//				
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r1").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r1").checked = false;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r2").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r2").checked = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterNumber").style.display = "none";
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterDate").style.display = "none";
+//				
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").checked = false;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r2").disabled = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r2").checked = true;
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_chequeNumber").style.display = "none";
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_chequeDescription").style.display = "none";
+//				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_otherChequeDetails").style.display = "none";
+
+			}else{
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = true;
+			}
+			
+			if(selectedRow.hasViolations == 'Y'){
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = false;
+			}else{
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = true;
+			}
+			
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_address").value = convertHTMLEncodedToText(selectedRow.address); 
 			winParent.focus();
