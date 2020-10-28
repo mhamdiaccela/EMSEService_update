@@ -234,7 +234,7 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopNumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
 			
-			if(selectedRow.hasLastRent){
+			if(selectedRow.hasLastRent == 'Y'){
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = true;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = false;
 				
@@ -279,6 +279,9 @@ function selectCOOP() {
 			}else{
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = false;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = true;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").disabled = true;
 			}
 			
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
