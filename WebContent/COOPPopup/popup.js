@@ -233,6 +233,9 @@ function selectCOOP() {
 			}else{
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = false;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = true;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = true;
 			}
 			
 			if(selectedRow.hasViolations == 'Y'){
