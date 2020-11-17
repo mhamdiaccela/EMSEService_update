@@ -45,6 +45,7 @@ function searchRecordRequest(coopName, coopNumber, page, limit) {
 					}
 
 					if (outObj) {
+//						alert("SUCCESS : outObj json : " + JSON.stringify(outObj));
 						builRecordlist(outObj.items);
 						buildRecordPageList(outObj.resultCount);
 						$("#page-" + globalVars.pageNumber).css("color", "red");
@@ -109,6 +110,8 @@ function builRecordlist(arr) {
 		htmlOutput += '<td>' + arr[i]["coopName"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["surfaceArea"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["address"] + '</td>';
+//		htmlOutput += '<td>' + arr[i]["hasLastRent"] + '</td>';
+//		htmlOutput += '<td>' + arr[i]["hasViolations"] + '</td>';
 		htmlOutput += '</tr>';
 	}
 	$('#recordListTable').html(htmlOutput);
@@ -148,6 +151,8 @@ function recordClick(obj) {
 	} catch (error) {
 		//alert(error.message);
 	}
+	
+//	alert("SUCCESS : data json : " + JSON.stringify(selectedRow));
 }
 
 function depositChanged(obj) {
@@ -238,6 +243,9 @@ function selectCOOP() {
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = true;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = false;
 				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = false;
+				
 //				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = true;
 //				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").checked = false;
 //				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = true;
@@ -277,20 +285,17 @@ function selectCOOP() {
 			}
 			
 			if(selectedRow.hasViolations == 'Y'){
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = true;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").disabled = false;
 				
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterNumber").style.display = "block";
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterDate").style.display = "block";
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").click();
+				
 			}else{
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").checked = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").click();
 				
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r1").disabled = true;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceToRemoveViolations_r2").disabled = true;
 				
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterNumber").style.display = "none";
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_letterDate").style.display = "none";
 			}
 			
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfaceArea);
