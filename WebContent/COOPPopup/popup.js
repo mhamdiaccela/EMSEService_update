@@ -228,14 +228,39 @@ function selectCOOP() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
 			
 			if(selectedRow.hasLastRent == 'Y'){
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = true;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = false;
-			}else{
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").checked = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").checked = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").click();
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r2").disabled = false;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r2").disabled = false;
 				
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = true;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = true;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = true;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = true;
+
+			}else{
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").click();
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = false;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = false;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = false;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r2").disabled = true;
+				
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r1").disabled = true;
+				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithMOSALetter_r2").disabled = true;
 			}
 			
 			if(selectedRow.hasViolations == 'Y'){
