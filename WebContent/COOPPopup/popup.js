@@ -246,15 +246,25 @@ function selectCOOP() {
 
 			}else{
 				
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").click();
-				
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = false;
-				
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = false;
-				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = false;
+				if(selectedRow.hasViolations == 'Y'){
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = true;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = true;
+					
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = true;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = true;
+					
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = true;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = true;
+				}else{
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r1").disabled = false;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_Contract_Replacement_r2").disabled = false;
+					
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r1").disabled = false;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_paidRent_r2").disabled = false;
+					
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r1").disabled = false;
+					winParent.document.getElementById("app_spec_info_REQUESTDETAILS_toWhomItMayConcern_r2").disabled = false;
+				}
 				
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r1").disabled = true;
 				winParent.document.getElementById("app_spec_info_REQUESTDETAILS_tempClearanceWithCheque_r2").disabled = true;
