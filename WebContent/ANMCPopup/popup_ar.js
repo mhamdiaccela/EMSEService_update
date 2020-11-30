@@ -122,30 +122,97 @@ var utilizationDDLValues = {
 	},
 	"Commercial Markets" : {
 		"ar_AE" : "الأسواق التجارية",
-		"en_US" : "Commercial Markets"
+		"en_US" : "Commercial Markets",
+		children: [
+			"Bird Market",
+			"Sale of Fodders",
+			"Women Market Sites",
+			"Driving Schools",
+			"Land Sites",
+			"Plots (Remote Areas)"	
+		]
 	},
 	"Complex of Ministries" : {
 		"ar_AE" : "مواقع مجمع الوزارات",
-		"en_US" : "Complex of Ministries"
+		"en_US" : "Complex of Ministries",
+		children: [
+			"Antennas",
+			"Banks",
+			"Kiosks Used as Service Sites",
+			"Signal Station",
+			"Telecommunications Companies",
+			"Internet Room",
+			"Restaurants/Kiosks(Printing/Accessories)",
+			"Ministry of Commerce and Industry"
+		]
 	},
 	"Expropriate Real Estate" : {
 		"ar_AE" : "العقارات المستملكة",
-		"en_US" : "Expropriate Real Estate"
+		"en_US" : "Expropriate Real Estate",
+		children: [
+			"Expropriated Houses",
+			"Expropriated Real Estate-Different Utilizations",
+			"Gharably Market",
+			"Arms market",
+			"Barley market",
+			"Dahla Market",
+			"Palestine Street",
+			"Guard Market",
+			"Abdullah Al Salem Street",
+			"Zal market",
+			"Wajif Market",
+			"Al-Saffarin Old Market",
+			"Expropriated homes"
+		]
 	},
 	"Interior Market" : {
 		"ar_AE" : "السوق الداخلي",
-		"en_US" : "Interior Market"
+		"en_US" : "Interior Market",
+		children: [
+			"Markets inside Interior Market",
+			"Sites include Stores",
+			"Cafe",
+			"Library"
+		]
 	},
 	"Workshops and shops of the new city of Khiran" : {
 		"ar_AE" : "ورش ومحلات مدينة الخيران",
-		"en_US" : "Workshops and shops of the new city of Khiran"
-	},
+		"en_US" : "Workshops and shops of the new city of Khiran",
+		children: [
+			"Large Markets",
+			"Large workMarkets",
+			"Small Markets",
+			"Small WorkMarkets"
+		]
+	}
 }
 
 function initPopup(){
 	loadDDLValues();
 }
 
+function filterChild(dd){
+	if (dd.value && dd.value !="select"){
+		filterCommercialActivities(dd.value);
+	}
+}
+function filterCommercialActivities(utilSelection){
+	html = "<option value='select'>" + commercialActivityDDL["select"][globalVars.lang] + "</option>";
+	var selectedValue = utilizationDDLValues[utilSelection];
+	if (selectedValue){
+		var children = selectedValue.children;
+		if (children){
+			for ( var value in children) {
+				try{
+					html += "<option value='" + children[value] + "'>" + commercialActivityDDL[children[value]][globalVars.lang] + "</option>"
+				}catch(err){
+					
+				}
+			}
+			document.getElementById("commercialActivity").innerHTML = html;				
+		}
+	}
+}
 function loadDDLValues() {
 	var html = '';
 	for ( var value in utilizationDDLValues) {
