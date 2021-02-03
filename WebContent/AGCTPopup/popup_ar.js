@@ -408,14 +408,16 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageDate").value = selectedRow.mortgageDate;
 		    //winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_mortgageEndDate").value = selectedRow.mortgageEndDate;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_plotStatus").value = selectedRow.plotStatus;
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_plotStatus").value = selectedRow.plotStatus;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractType").value = selectedRow.contractType;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
-			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_agriculturePlotID").value = convertHTMLEncodedToText(selectedRow.agriculturePlotID);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = convertHTMLEncodedToText(selectedRow.agriculturePlotID);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractStartDate").value = convertHTMLEncodedToText(selectedRow.contractStartDate);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = convertHTMLEncodedToText(selectedRow.expectedContractEndDate);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = convertHTMLEncodedToText(selectedRow.contractEndDate);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = selectedRow.planNumber;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
 			winParent.focus();
 			window.close();
 
