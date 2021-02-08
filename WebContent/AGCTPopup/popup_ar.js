@@ -269,7 +269,7 @@ function selectAGCT() {
 		}else if (globalVars.recordType == "AGCT") {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = selectedRow.planNumber;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
 			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
@@ -416,7 +416,7 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_expectedContractEndDate").value = convertHTMLEncodedToText(selectedRow.expectedContractEndDate);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractEndDate").value = convertHTMLEncodedToText(selectedRow.contractEndDate);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_caseFileBarcode").value = selectedRow.caseFileBarcode;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = selectedRow.planNumber;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
 			winParent.focus();
 			window.close();
