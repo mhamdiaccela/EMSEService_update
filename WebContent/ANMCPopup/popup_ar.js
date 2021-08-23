@@ -447,7 +447,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_Area").value = selectedRow.area;
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
-			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
+			//winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
 			winParent.document.getElementById("app_spec_info_CURRENTMARKETDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
@@ -490,7 +490,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_Area").value = selectedRow.area;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
-			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
+			//winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = selectedRow.utilization;
 			
 			winParent.focus();
@@ -502,7 +502,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Area").value = selectedRow.area;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
+			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = selectedRow.utilization;
 
 			winParent.focus();
@@ -529,7 +529,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_MarketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_Area").value = selectedRow.area;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
-			winParent.document.getElementById("app_spec_info_MARKETDETAILS_MarketName").value = convertHTMLEncodedToText(selectedRow.marketName);
+			//winParent.document.getElementById("app_spec_info_MARKETDETAILS_MarketName").value = convertHTMLEncodedToText(selectedRow.marketName);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = selectedRow.utilization;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_annualRentingFees").value = selectedRow.annualRentingFees;
 			//winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractDurationYears").value = selectedRow.contractDurationYears;
@@ -559,7 +559,7 @@ function selectANMC() {
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketNumber").value = selectedRow.marketNumber;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_area").value = selectedRow.area;
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
-			winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
+			//winParent.document.getElementById("app_spec_info_MARKETDETAILS_marketName").value = convertHTMLEncodedToText(selectedRow.marketName);
 			winParent.document.getElementById("app_spec_info_MARKETDETAILS_utilization").value = selectedRow.utilization;
 			
 			winParent.focus();
