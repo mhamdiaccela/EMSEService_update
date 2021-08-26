@@ -482,6 +482,14 @@ function selectANMC() {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = globalVars.selectedConsignee;
 
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+            winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_marketNumber").value = selectedRow.marketNumber;
+            winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+            winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_commercialActivity").value = convertHTMLEncodedToText(selectedRow.commercialActivity);
+            winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_area").value = selectedRow.area;
+
+ 
+            
 			winParent.focus();
 
 			window.close();
