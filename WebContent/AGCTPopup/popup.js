@@ -302,9 +302,15 @@ function selectAGCT() {
 			winParent.focus();
 			window.close();
 		} else if (globalVars.recordType == "APFI") {
-			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_contractNumber").value = globalVars.selectedConsignee;
-			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
+			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_contractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_INSPECTIONDETAILS_agriculturePlotID").value = convertHTMLEncodedToText(selectedRow.agriculturePlotID);
 
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = convertHTMLEncodedToText(selectedRow.blockNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfacearea);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
+			
 			winParent.focus();
 			window.close();
 			
