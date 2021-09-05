@@ -285,7 +285,14 @@ function selectNCHL() {
 
 			window.close();
 		}
-		
+		if (globalVars.recordType == "CTSL") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+
+			winParent.focus();
+
+			window.close();
+		}
 		if (globalVars.recordType == "CIPA") {
 			
 			winParent.document.getElementById("app_spec_info_LICENSEDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);

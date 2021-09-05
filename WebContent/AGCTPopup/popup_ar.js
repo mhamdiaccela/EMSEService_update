@@ -354,7 +354,7 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = convertHTMLEncodedToText(selectedRow.surfacearea);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
-			
+											   
 			winParent.focus();
 			window.close();
 

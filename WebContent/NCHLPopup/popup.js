@@ -248,6 +248,12 @@ function selectNCHL() {
 			winParent.focus();
 
 			window.close();
+		}else if (globalVars.recordType == "CTSL") {
+			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = convertHTMLEncodedToText(selectedRow.chaletID);
+	        winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_licenseNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.focus();
+
+			window.close();
 		}else{
 			winParent.document.getElementById("app_spec_info_APPLICATIONDETAILS_chaletID").value = selectedRow.chaletID;
 			winParent.document.getElementById("app_spec_info_LICENSEDETAILS_licenseNumber").value = selectedRow.licenseNumber;
