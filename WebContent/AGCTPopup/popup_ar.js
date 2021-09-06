@@ -284,7 +284,7 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = convertHTMLEncodedToText(selectedRow.blockNumber);
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = convertHTMLEncodedToTextselectedRow.agriculturePlotID);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = convertHTMLEncodedToText(selectedRow.agriculturePlotID);
 			
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = convertHTMLEncodedToText(selectedRow.Address1);
