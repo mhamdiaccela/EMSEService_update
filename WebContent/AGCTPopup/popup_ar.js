@@ -283,15 +283,18 @@ function selectAGCT() {
 
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_currentContractLicenseNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
-			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_Governorate").value = convertHTMLEncodedToText(selectedRow.Governorate_ar);
-			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_KuwaitArea").value = convertHTMLEncodedToText(selectedRow.KuwaitArea_ar);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = convertHTMLEncodedToText(selectedRow.blockNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = convertHTMLEncodedToTextselectedRow.agriculturePlotID);
+			
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = selectedRow.Address1;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = convertHTMLEncodedToText(selectedRow.Address1);
 			
 			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
 			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_Governorate")[0].value = convertHTMLEncodedToText(selectedRow.Governorate);
+			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_KuwaitArea")[0].value = convertHTMLEncodedToText(selectedRow.KuwaitArea);
+			winParent.document.getElementById("assistant_app_spec_info_CONTRACTDETAILS_KuwaitArea").value=convertHTMLEncodedToText(selectedRow.KuwaitArea);
+			
 
 			winParent.focus();
 			window.close();
