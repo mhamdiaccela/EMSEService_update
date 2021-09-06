@@ -23,7 +23,11 @@ var selectedRow = {
 	contractType : "",
 	contractDurationYears : "",
 	planNumber : "",
-	blockNumber : ""
+	blockNumber : "",
+		Governorate: "",
+Governorate_ar: "",
+KuwaitArea: "",
+KuwaitArea_ar: ""
 
 }
 
@@ -123,6 +127,11 @@ function builRecordlist(arr) {
 		objData.totalRentingFees = arr[i]["totalRentingFees"];
 		objData.planNumber  = arr[i]["planNumber"];
 		objData.blockNumber = arr[i]["blockNumber"];
+			objData.Governorate= arr[i]["Governorate"];
+			objData.Governorate_ar= arr[i]["Governorate_ar"];
+objData.KuwaitArea= arr[i]["KuwaitArea"];
+objData.KuwaitArea_ar= arr[i]["KuwaitArea_ar"];
+
 
 		arrayOfData[i] = objData;
 
@@ -175,7 +184,11 @@ function recordClick(obj) {
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
 				selectedRow.planNumber = arrayOfData[data].planNumber;
 				selectedRow.blockNumber = arrayOfData[data].blockNumber;
-				
+				selectedRow.Governorate = arrayOfData[data].Governorate;
+				selectedRow.Governorate_ar = arrayOfData[data].Governorate_ar;
+				selectedRow.KuwaitArea = arrayOfData[data].KuwaitArea;
+				selectedRow.KuwaitArea_ar = arrayOfData[data].KuwaitArea_ar;
+		
 
 				break;
 			}
@@ -272,12 +285,13 @@ function selectAGCT() {
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_blockNumber").value = selectedRow.blockNumber;
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_agriculturePlotID").value = selectedRow.agriculturePlotID;
-			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_utilization").value = convertHTMLEncodedToText(selectedRow.utilization);
-			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_activityType").value = convertHTMLEncodedToText(selectedRow.activitytype);
-			winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_surfaceArea").value = selectedRow.surfacearea;
-			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = convertHTMLEncodedToText(selectedRow.Address1);
-			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
-			//winParent.document.getElementById("app_spec_info_CURRENTPLOTDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
+			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_Governorate").value = convertHTMLEncodedToText(selectedRow.Governorate_ar);
+			winParent.document.getElementsByName("app_spec_info_CONTRACTDETAILS_KuwaitArea").value = convertHTMLEncodedToText(selectedRow.KuwaitArea_ar);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_surfaceArea").value = selectedRow.surfacearea;
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_Address1").value = selectedRow.Address1;
+			
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r1").checked = selectedRow.ismortgaged == 'Yes' ? true : false;
+			winParent.document.getElementById("app_spec_info_MORTGAGEDETAILS_isMortgaged%3F_r2").checked = selectedRow.ismortgaged == 'No' ? true : false;
 
 			winParent.focus();
 			window.close();
