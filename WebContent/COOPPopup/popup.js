@@ -209,6 +209,14 @@ function selectCOOP() {
 
 			winParent.focus();
 			window.close();
+			} else if (globalVars.recordType == "ICOC") {
+			winParent = window.opener;
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_coopcontractnumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_coopname").value = convertHTMLEncodedToText(selectedRow.coopName);
+			winParent.document.getElementById("app_spec_info_COOPDETAILS_coopnumber").value = convertHTMLEncodedToText(selectedRow.coopNumber);
+			
+			winParent.focus();
+			window.close();
 		} else if (globalVars.recordType == "COCT") {
 			winParent = window.opener;
 			winParent.document.getElementById("app_spec_info_COOPDETAILS_previousContractNumber").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
