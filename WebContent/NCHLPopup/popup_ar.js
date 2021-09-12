@@ -306,7 +306,7 @@ function selectNCHL() {
 		if (globalVars.recordType == "TCRC") {
 			
 			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_ChaletNumber").value = convertHTMLEncodedToText(selectedRow.chaletID);
-			winParent.document.getElementById(app_spec_info_CONTRACTDETAILS_contractNumber).value = convertHTMLEncodedToText(selectedRow.licenseNumber);
+			winParent.document.getElementById("app_spec_info_CONTRACTDETAILS_contractNumber").value = convertHTMLEncodedToText(selectedRow.licenseNumber);
 
 			winParent.focus();
 
