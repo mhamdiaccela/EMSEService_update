@@ -312,6 +312,9 @@ function selectCOOP() {
 			winParent = window.opener;
 			winParent.document.getElementById("app_spec_info_GENERAL_contractid").value = convertHTMLEncodedToText(globalVars.selectedConsignee);
 			winParent.document.getElementById("app_spec_info_GENERAL_location").value = convertHTMLEncodedToText(selectedRow.address);
+			winParent.document.getElementById("app_spec_info_GENERAL_Coop_Number").value = convertHTMLEncodedToText(selectedRow.coopNumber);
+			winParent.document.getElementById("app_spec_info_GENERAL_coopName").value = convertHTMLEncodedToText(selectedRow.coopName);
+			
 			winParent.focus();
 			window.close();
 		}
