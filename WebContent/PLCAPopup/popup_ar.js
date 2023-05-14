@@ -1,6 +1,5 @@
 var selectedRow = {
 	annualRentingFees : "",
-	caseFileBarcode : "",
 	commericialName : "",
 	contractDurationYears : "",
 	contractEndDate : "",
@@ -16,16 +15,20 @@ var selectedRow = {
 	allocationEntity : "",
 	blockNumber : "",
 	contractApplicationType : "",
-	address : ""
+	address : "",
+	governorate:"",
+	kuwaitArea:"",
+	caseFileBarcode:""
 };
 
-function searchRecordRequest(planNumber, plotID, commericialName, blockNumber, ALTID, page, limit) {
+function searchRecordRequest(governorate,kuwaitArea,caseFileBarcode,planNumber, plotID, commericialName, blockNumber, ALTID, page, limit) {
 	try {
 		showSearchLoading();
 
 		var returnValue = "";
 		var prosData = "{sessionId:'" + globalVars.userSessionId + "', serviceProviderCode:'MOFK', callerId:'" + globalVars.currentUserID
-				+ "', scriptName:'SEARCH_PLCA_RECORDS', parameters:[{Key:'planNumber', Value:'" + planNumber + "'}," + "{Key:'plotID', Value:'" + String(plotID) + "'},"
+				+ "', scriptName:'SEARCH_PLCA_RECORDS', parameters:[{Key:'planNumber', Value:'" + String(planNumber) + "'}," + "{Key:'plotID', Value:'" + String(plotID) + "'},"
+				+ "{Key:'governorate', Value:'" + String(governorate) + "'},{Key:'kuwaitArea', Value:'" + String(kuwaitArea) + "'},{Key:'caseFileBarcode', Value:'" + String(caseFileBarcode) + "'},"
 				+ "{Key:'commericialName', Value:'" + String(commericialName) + "'}," + "{Key:'ALTID', Value:'" + String(ALTID) + "'}," + "{Key:'blockNumber', Value:'"
 				+ String(blockNumber) + "'}," + "{Key:'pageLimit', Value:'" + page + "," + limit + "'}," + "{Key:'action', Value:'searchRecordRecords'}]}";
 		$.ajax({
@@ -82,7 +85,7 @@ function builRecordlist(arr) {
 	}
 
 	htmlOutput += '<tr><th></th><th>رقم العقد</th><th>الاسم التجارى</th><th>رقم المخطط</th>';
-	htmlOutput += '<th>رقم القطعة</th>  <th>رقم القسيمة</th> </tr>';
+	htmlOutput += '<th>رقم القطعة</th>  <th>رقم القسيمة</th> <th>المحافظة</th> <th>المنطقة</th> <th>رقم الملف</th> </tr>';
 
 	for (var i = 0; i < arr.length; i++) {
 		if (i % 2 == 0) {
@@ -93,7 +96,6 @@ function builRecordlist(arr) {
 		var objData = new Object();
 		objData.itemId = arr[i]["itemId"];
 		objData.annualRentingFees = arr[i]["annualRentingFees"];
-		objData.caseFileBarcode = arr[i]["caseFileBarcode"];
 		objData.commericialName = arr[i]["commericialName"];
 		objData.contractDurationYears = arr[i]["contractDurationYears"];
 		objData.contractEndDate = arr[i]["contractEndDate"];
@@ -111,6 +113,10 @@ function builRecordlist(arr) {
 		objData.contractApplicationType = arr[i]["contractApplicationType"];
 		arr[i]["address"] = decode64(arr[i]["address"]);
 		objData.address = arr[i]["address"];
+		objData.governorate = arr[i]["governorate"];
+		objData.kuwaitArea = arr[i]["kuwaitArea"];
+		objData.caseFileBarcode = arr[i]["caseFileBarcode"];
+
 		arrayOfData[i] = objData;
 
 		htmlOutput += '<td><input type="radio" onclick="recordClick(this);" name="firs" value="' + arr[i]["itemId"] + '"></input></td>';
@@ -119,6 +125,9 @@ function builRecordlist(arr) {
 		htmlOutput += '<td>' + arr[i]["planNumber"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["blockNumber"] + '</td>';
 		htmlOutput += '<td>' + arr[i]["plotID"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["governorate"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["kuwaitArea"] + '</td>';
+		htmlOutput += '<td>' + arr[i]["caseFileBarcode"] + '</td>';
 		htmlOutput += '</tr>';
 
 	}
@@ -143,7 +152,6 @@ function recordClick(obj) {
 				selectedRow.currentContractLicenseNumber = arrayOfData[data].itemId;
 
 				selectedRow.annualRentingFees = arrayOfData[data].annualRentingFees;
-				selectedRow.caseFileBarcode = arrayOfData[data].caseFileBarcode;
 				selectedRow.commericialName = arrayOfData[data].commericialName;
 				selectedRow.contractDurationYears = arrayOfData[data].contractDurationYears;
 				selectedRow.contractEndDate = arrayOfData[data].contractEndDate;
@@ -160,6 +168,11 @@ function recordClick(obj) {
 				selectedRow.blockNumber = arrayOfData[data].blockNumber;
 				selectedRow.contractApplicationType = arrayOfData[data].contractApplicationType;
 				selectedRow.address = arrayOfData[data].address;
+				
+				selectedRow.governorate = arrayOfData[data].governorate;
+				selectedRow.kuwaitArea = arrayOfData[data].kuwaitArea;
+				selectedRow.caseFileBarcode = arrayOfData[data].caseFileBarcode;
+				
 				break;
 			}
 
@@ -218,7 +231,7 @@ function searchRecordPage(pageNumber) {
 
 function searchRecord(pageNumber) {
 	globalVars.pageLimit = 5;
-	searchRecordRequest($("#planNumber").val(), $("#plotID").val(), $("#commericialName").val(), $("#blockNumber").val(), '', pageNumber, globalVars.pageLimit);
+	searchRecordRequest($("#governorate").val(),$("#kuwaitArea").val(),$("#caseFileBarcode").val(),$("#planNumber").val(), $("#plotID").val(), $("#commericialName").val(), $("#blockNumber").val(), '', pageNumber, globalVars.pageLimit);
 }
 
 function selectPLCA() {
@@ -295,6 +308,7 @@ function selectPLCA() {
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_surfaceArea").value = selectedRow.surfaceArea;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_blockNumber").value = selectedRow.blockNumber;
 			winParent.document.getElementById("app_spec_info_REQUESTDETAILS_planNumber").value = convertHTMLEncodedToText(selectedRow.planNumber);
+			
 			winParent.focus();
 			window.close();
 
@@ -332,6 +346,9 @@ function resetRecordSearch() {
 	$("#planNumber").val("");
 	$("#blockNumber").val("");
 	$("#plotID").val("");
+	$("#governorate").val("");
+	$("#kuwaitArea").val("");
+	$("#caseFileBarcode").val("");
 	$("#commericialName").val("");
 	$('#searchResultContainer').css('display', 'none');
 	$('#noFirsLabel').css('display', 'none');
